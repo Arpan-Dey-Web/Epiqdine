@@ -1,0 +1,22 @@
+/* nabbar logo font  */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+.logoName {
+  font-family: "Fira Code", monospace;
+}
+
+.active {
+  font-size: 20px;
+  color: #2511da;
+  font-weight: 700;
+  border-bottom: 2px solid rgb(223, 133, 16);
+}
+
+
+
+/* .background{
+    background-color: #283593;
+} */

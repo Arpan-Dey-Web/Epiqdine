@@ -1,22 +1,26 @@
-import React from "react";
+import React, { use } from "react";
 import { FaUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { Tooltip } from "react-tooltip";
+import { AuthContext } from "./Context/AuthContext";
 
 const Nabbar = () => {
+  const { user, signOutUser } = use(AuthContext);
+  
+ 
   const links = (
     <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center md:flex-row font-semibold md:text-lg">
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/allgroups"}>All Groups</NavLink>
+        <NavLink to={"/allGroups"}>All Groups</NavLink>
       </li>
       <li>
-        <NavLink to={"/creategroup"}>Create Group</NavLink>
+        <NavLink to={"/createGroup"}>Create Group</NavLink>
       </li>
       <li>
-        <NavLink to={"/mygroup"}>My Groups</NavLink>
+        <NavLink to={"/myGroups"}>My Groups</NavLink>
       </li>
     </div>
   );
@@ -64,7 +68,7 @@ const Nabbar = () => {
         <div>
           <div
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="This is arpan"
+            data-tooltip-content="arpan"
             data-tooltip-place="top"
           >
             <button className=" p-3 border border-amber-500 rounded-full  ">
@@ -74,13 +78,17 @@ const Nabbar = () => {
 
           <Tooltip id="my-tooltip" />
         </div>
-
-        <Link to={"/login"} className="btn">
-          LogIn
-        </Link>
-        <Link to={"/register"} className="btn">
-          Register
-        </Link>
+        <div className="ml-2">
+          {user ? (
+            <button onClick={() => signOutUser()} className="btn">
+              LogOut
+            </button>
+          ) : (
+            <Link to={"/logIn"} className="btn">
+              LogIn
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

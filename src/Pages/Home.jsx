@@ -78,6 +78,8 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+
+      
     </div>
   );
 };

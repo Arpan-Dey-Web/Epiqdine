@@ -9,9 +9,9 @@
 }
 
 .active {
-  font-size: 20px;
+  font-size: 18px;
   color: #2511da;
-  font-weight: 700;
+  font-weight: 500;
   border-bottom: 2px solid rgb(223, 133, 16);
 }
 

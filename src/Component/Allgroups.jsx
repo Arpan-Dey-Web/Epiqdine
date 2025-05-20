@@ -8,4 +8,4 @@ const Allgroups = () => {
     );
 };
 
-export default Allgroups;<h1>allgroups here</h1>
+export default Allgroups;

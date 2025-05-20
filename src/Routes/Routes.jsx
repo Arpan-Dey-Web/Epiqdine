@@ -6,35 +6,75 @@ import CreateGroup from "../Component/CreateGroup";
 import MyGroup from "../Component/MyGroup";
 import Register from "../Component/Register";
 import Login from "../Component/Login";
+import GroupDetails from "../Component/GroupDetails";
+import UpdateGroup from "../Component/UpdateGroup";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: MainLayOut,
+    element: <MainLayOut />,
+    errorElement: <div>error page</div>,
+    hydrateFallbackElement: <div>Loading.........</div>,
     children: [
       {
         index: true,
-        Component: Home,
+        loader: () => fetch("http://localhost:3000/creategroups"),
+        element: <Home />,
       },
       {
         path: "/allGroups",
-        Component: Allgroups,
+        element: (
+          <PrivateRoute>
+            <Allgroups />
+          </PrivateRoute>
+        ),
       },
       {
         path: "createGroup",
-        Component: CreateGroup,
+        element: (
+          <PrivateRoute>
+            <CreateGroup></CreateGroup>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myGroups",
-        Component: MyGroup,
+        element: (
+          <PrivateRoute>
+            <MyGroup></MyGroup>
+          </PrivateRoute>
+        ),
       },
+
       {
         path: "register",
-        Component: Register,
+        element: <Register />,
       },
       {
         path: "logIn",
-        Component: Login,
+        element: <Login />,
+      },
+      {
+        path: "/group/:id",
+        loader: () => fetch(""),
+        element: (
+          <PrivateRoute>
+            <GroupDetails></GroupDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: " /updateGroup/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateGroup> </UpdateGroup>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "*",
+        element: <div>error page</div>,
       },
     ],
   },

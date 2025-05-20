@@ -3,20 +3,31 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "./Context/AuthContext";
 
 const Register = () => {
-    const navigate = useNavigate()
-  const { createUser } = use(AuthContext);
+  const {  setUser, createUser, updataUserProfile } = use(AuthContext);
+  const navigate = useNavigate();
   const registerAccount = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const imageUrl = e.target.password.value;
-    const user = { name, email, password, imageUrl };
+
     createUser(email, password)
       .then((result) => {
-        console.log(result);
-          // alert("Account created sucessfully")
-          navigate("/");
+        const user = result.user;
+        // alert("Account created sucessfully")
+        updataUserProfile({
+          displayName: name,
+          photoURL: imageUrl,
+        })
+          .then((result) => {
+            setUser({ ...user, displayName: name, photoURL: imageUrl });
+            navigate("/");
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user)
+          });
       })
       .catch((error) => {
         console.log(error);

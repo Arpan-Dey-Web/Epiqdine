@@ -1,14 +1,23 @@
 import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "./Context/AuthContext";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const Login = () => {
-    const navigate =useNavigate()
-  const { signInuser } = use(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation()
+  const { signInuser, logInWithGoogle } = use(AuthContext);
   const logInUserWithGoogle = () => {
-    console.log("google button clicked");
+    logInWithGoogle()
+      .then((result) => {
+        navigate(`${location.state? location.state: "/"}`);
+        console.log(result);
+      })
+      .catch((error) => {
+        alert("error ",error);
+      });
   };
+
   const logInWithEmailPaassword = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -17,8 +26,8 @@ const Login = () => {
     signInuser(email, password)
       .then((result) => {
         // console.log(result);
-          alert("logged in sucessfully");
-          navigate("/");
+        alert("logged in sucessfully");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { useLoaderData } from "react-router";
+import Group from "../Component/Group";
 const Home = () => {
-  const sliderClass ="flex items-center justify-center w-full  overflow-hidden rounded-2xl";
-  const sliderImageClass = "object-contain max-w-5xl mx-auto max-h-full rounded-2xl";
-  
+  const allgroup = useLoaderData();
+
+  const [groups, setGroups] = useState(allgroup);
+  const sliderClass =
+    "flex items-center justify-center w-full  overflow-hidden rounded-2xl";
+  const sliderImageClass =
+    "object-contain max-w-5xl mx-auto max-h-full rounded-2xl";
+
   return (
     <div>
       {/* slider */}
@@ -78,8 +85,12 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      
+      {/* all groups looping here */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-2xl w-full mx-auto py-10">
+        {groups.map((group, index) => (
+          <Group key={index} group={group}></Group>
+        ))}
+      </div>
     </div>
   );
 };

@@ -6,8 +6,8 @@ import { AuthContext } from "./Context/AuthContext";
 
 const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
-  
- 
+  // console.log(user);
+
   const links = (
     <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center md:flex-row font-semibold md:text-lg">
       <li>
@@ -68,11 +68,22 @@ const Nabbar = () => {
         <div>
           <div
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="arpan"
+            data-tooltip-content={
+              // user.displayName ? user.displayName :
+              "No user"
+            }
             data-tooltip-place="top"
           >
             <button className=" p-3 border border-amber-500 rounded-full  ">
-              <FaUser size={25}></FaUser>
+              {
+                // user.photoURL ? (
+                // <img className="w-full h-full" src={user.photoURL} alt="" />
+                // ) : (
+
+                <FaUser size={25}></FaUser>
+
+                // )
+              }
             </button>
           </div>
 

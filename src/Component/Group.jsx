@@ -1,24 +1,17 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Group = ({ group }) => {
-  // {
-  //     "_id": "682cadbd4de5cb8e83b5b23f",
-  //     "groupName": "confession group",
-  //     "groupdescription": "for learn something different",
-  //     "meetingLocation": "chittagong",
-  //     "groupCategory": "Reading",
-  //     "maxMembers": "5",
-  //     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zwhySGCEBxRRFYIcQgvOLOpRGqrT3d7Qng&s",
-  //     "name": "Arpon dey",
-  //     "email": "arpanthelearner@gmail.com"
-  // }
+  console.log(group);
   const {
     groupName,
     groupdescription,
+    startDate,
     meetingLocation,
     groupCategory,
     maxMembers,
     imageURL,
+    _id
   } = group;
   return (
     <div>
@@ -35,8 +28,16 @@ const Group = ({ group }) => {
           <h2 className="text-xl font-semibold tracking-wide">
             {groupCategory}
           </h2>
+          <h2 className="text-lg font-semibold tracking-wide">
+            Date: {startDate}
+          </h2>
         </div>
         <p className="dark:text-gray-800">{groupdescription}</p>
+        <div className="text-center pt-3">
+          <Link to={`/group/${_id}`} className="btn">
+            See Details
+          </Link>
+        </div>
       </div>
     </div>
   );

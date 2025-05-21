@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allGroups",
+        loader: () => fetch("http://localhost:3000/creategroups/all-data"),
         element: (
           <PrivateRoute>
             <Allgroups />
@@ -39,7 +40,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "myGroups",
+        path: "myGroups/:email",
+        loader: ({params}) => fetch(`http://localhost:3000/my-groups/${params.email}`),
         element: (
           <PrivateRoute>
             <MyGroup></MyGroup>
@@ -57,7 +59,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/group/:id",
-        loader: () => fetch(""),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/creategroups/${params.id}`),
         element: (
           <PrivateRoute>
             <GroupDetails></GroupDetails>

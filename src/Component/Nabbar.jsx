@@ -6,7 +6,7 @@ import { AuthContext } from "./Context/AuthContext";
 
 const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
-  // console.log(user);
+
 
   const links = (
     <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center md:flex-row font-semibold md:text-lg">
@@ -20,7 +20,7 @@ const Nabbar = () => {
         <NavLink to={"/createGroup"}>Create Group</NavLink>
       </li>
       <li>
-        <NavLink to={"/myGroups"}>My Groups</NavLink>
+        <NavLink to={`/myGroups/${user?.email}`}>My Groups</NavLink>
       </li>
     </div>
   );
@@ -69,21 +69,16 @@ const Nabbar = () => {
           <div
             data-tooltip-id="my-tooltip"
             data-tooltip-content={
-              // user.displayName ? user.displayName :
-              "No user"
+              user?.displayName ? user?.displayName : "No user"
             }
             data-tooltip-place="top"
           >
-            <button className=" p-3 border border-amber-500 rounded-full  ">
-              {
-                // user.photoURL ? (
-                // <img className="w-full h-full" src={user.photoURL} alt="" />
-                // ) : (
-
+            <button className=" p-1 border border-amber-500 rounded-full  ">
+              {user?.photoURL ? (
+                <img className="w-8 h-8 rounded-full " src={user?.photoURL} alt="" />
+              ) : (
                 <FaUser size={25}></FaUser>
-
-                // )
-              }
+              )}
             </button>
           </div>
 
@@ -95,9 +90,14 @@ const Nabbar = () => {
               LogOut
             </button>
           ) : (
-            <Link to={"/logIn"} className="btn">
-              LogIn
-            </Link>
+            <div className="flex gap-3">
+              <Link to={"/logIn"} className="btn">
+                LogIn
+              </Link>
+              <Link to={"/register"} className="btn">
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </div>

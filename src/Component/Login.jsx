@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "./Context/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Login = () => {
     signInuser(email, password)
       .then((result) => {
         // console.log(result);
-        alert("logged in sucessfully");
+        toast("Wow so easy !");
         navigate("/");
       })
       .catch((error) => {

@@ -8,7 +8,6 @@ import { useLoaderData } from "react-router";
 import Group from "../Component/Group";
 const Home = () => {
   const allgroup = useLoaderData();
-
   const [groups, setGroups] = useState(allgroup);
   const sliderClass =
     "flex items-center justify-center w-full  overflow-hidden rounded-2xl";

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { use } from "react";
+// import { toast } from "react-toastify";
 // ✅Create Group Page ( /createGroup )
 // ✅Create Group Page that can be part of HobbyHub. The form will allow users to create a new hobby group. The form will have:
 
@@ -26,8 +27,11 @@ import React from "react";
 // ✅This page will be a private/protected route.
 // ✅Once you fill in the form and click the "Create" button, the data will be saved to the database, and a
 // success message will be displayed using a toast or sweet alert.
-
+import { AuthContext } from "./Context/AuthContext";
 const CreateGroup = () => {
+  const { user } = use(AuthContext);
+  const { email, displayName } = user;
+
   const handleCreateUser = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -62,7 +66,7 @@ const CreateGroup = () => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          alert("group created sucessfully");
+          // toast("Wow so easy !");
           e.target.reset();
         }
       });
@@ -154,7 +158,8 @@ const CreateGroup = () => {
                   className="input"
                   placeholder="Your Name"
                   name="name"
-                  required
+                  value={displayName}
+                  readOnly
                 />
                 <label className="label py-2">Your Email</label>
                 <input
@@ -162,7 +167,8 @@ const CreateGroup = () => {
                   className="input"
                   placeholder="Your Email"
                   name="email"
-                  required
+                  value={email}
+                  readOnly
                 />
               </div>
             </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router";
 
 const Group = ({ group }) => {
-  console.log(group);
   const {
     groupName,
     groupdescription,
@@ -15,7 +14,7 @@ const Group = ({ group }) => {
   } = group;
   return (
     <div>
-      <div className="max-w-md p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+      <div className="max-w-md p-6 rounded-md shadow-md ">
         <img
           src={imageURL}
           alt=""

@@ -26,7 +26,7 @@ const Table = ({ table, index }) => {
   } = table;
 
   return (
-    <tr>
+    <tr className="bg-amber-300 text-red-400">
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">

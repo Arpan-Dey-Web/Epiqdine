@@ -8,10 +8,10 @@ const Allgroups = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table ">
         {/* head */}
         <thead>
-          <tr>
+          <tr >
             <th>Group Name</th>
             <th>Group Location</th>
             <th>Category</th>
@@ -21,12 +21,11 @@ const Allgroups = () => {
           </tr>
         </thead>
         {/* table row  */}
-        <tbody>
+        <tbody> 
           {tableData.map((table, index) => (
-            <Table
+            <Table 
               key={index}
               index={index}
-              //   handleGroupDelete={handleGroupDelete}
               table={table}
             ></Table>
           ))}

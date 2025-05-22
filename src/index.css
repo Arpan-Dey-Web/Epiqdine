@@ -1,42 +1,31 @@
 /* nabbar logo font  */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&display=swap");
+/* poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
 @plugin "daisyui";
 
-
-:root {
-  /* 🎨 HobbyHub Color Palette */
-  
-  /* Core Colors */
-  --color-primary: #00B8D9;        /* 🧊 Ice Blue */
-  --color-secondary: #A782EC;      /* 🪞 Soft Lavender */
-  --color-accent: #00FFC6;         /* 🪩 Neon Mint */
-  --color-highlight: #C084FC;      /* ✨ Electric Purple */
-  --color-button-hover: #22D3EE;   /* 💬 Cool Cyan */
-
-  /* Background Colors */
-  --color-bg-light: #FFFFFF;       /* 🌝 Pure White */
-  --color-bg-default: #F3F4F6;     /* 🌌 Cosmic White */
-  --color-bg-dark: #0F172A;        /* 🌚 Jet Black */
-
-  /* Text Colors */
-  --color-text-primary: #1F2937;   /* ⚫ Graphite Black */
-  --color-text-secondary: #9CA3AF; /* 🩶 Cloud Gray */
+html {
+  font-family: "Poppins", sans-serif;
 }
+/* :root { */
+/* Core Colors */
+/* --color-primary: #00B8D9;         
+  --color-secondary: #A782EC;       
+  --color-accent: #00FFC6;          
+  --color-highlight: #C084FC;       
+  --color-button-hover: #22D3EE;     */
 
+/* Background Colors */
+/* --color-bg-light: #FFFFFF;       
+  --color-bg-default: #F3F4F6;     
+  --color-bg-dark: #0F172A;         */
 
-
-
-
-
-
-
-
-
-
-
-
+/* Text Colors */
+/* --color-text-primary: #1F2937;   
+  --color-text-secondary: #9CA3AF;  */
+/* } */
 
 .logoName {
   font-family: "Fira Code", monospace;
@@ -110,9 +99,7 @@
 }
 
 .active {
-  font-size: 18px;
   color: #2511da;
-  font-weight: 500;
   border-bottom: 2px solid rgb(223, 133, 16);
 }
 

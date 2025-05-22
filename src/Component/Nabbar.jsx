@@ -66,18 +66,23 @@ const Nabbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 p-2 shadow"
           >
             {links}
           </ul>
         </div>
 
-        <Link className="text-lg font-semibold logoName ">
-          <span className=" text-3xl  font-extrabold text-yellow-400">
-            Inner
-          </span>
-          <span className="text-blue-500 text-3xl font-extrabold">Self</span>
-        </Link>
+        <div className="flex items-center gap-2">
+          <div className="w-14 rounded-full">
+            <img className="rounded-full h-10 " src="/public/Screenshot 2025-05-22 210421.png" alt="" />
+          </div>
+          <Link to={"/"} className="text-lg font-semibold logoName ">
+            <span className="md:text-3xl  font-extrabold text-yellow-400">
+              Inner
+            </span>
+            <span className="text-blue-500 md:text-3xl font-extrabold">Self</span>
+          </Link>
+        </div>
       </div>
 
       <div className="navbar-center hidden lg:flex">

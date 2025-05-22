@@ -28,13 +28,13 @@ const UpdateGroup = () => {
     const updated_startDate = form.updateStartdate.value;
 
     const updateGroup = {
-      updated_groupName,
-      updated_groupdescription,
-      updated_meetingLocation,
-      updated_groupCategory,
-      updated_imageURL,
-      updated_maxMembers,
-      updated_startDate,
+      groupName: updated_groupName,
+      groupdescription: updated_groupdescription,
+      meetingLocation: updated_meetingLocation,
+      groupCategory: updated_groupCategory,
+      imageURL: updated_imageURL,
+      maxMembers: updated_maxMembers,
+      startDate: updated_startDate,
     };
 
     fetch(`http://localhost:3000/groups/${_id}`, {

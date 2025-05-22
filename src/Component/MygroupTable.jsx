@@ -17,7 +17,7 @@ const MygroupTable = ({ group, handleGroupDelete }) => {
   } = group;
 
   return (
-    <tr>
+    <tr className="bg-amber-200">
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">

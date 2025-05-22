@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import MainLayOut from "../Pages/MainlayOut";
 import Home from "../Pages/Home";
 import Allgroups from "../Component/Allgroups";
 import CreateGroup from "../Component/CreateGroup";
@@ -10,12 +9,14 @@ import GroupDetails from "../Component/GroupDetails";
 import UpdateGroup from "../Component/UpdateGroup";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../Component/Loading";
+import Error from "../Component/Error";
+import MainLayOut from "../Pages/MainLayOut";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
-    errorElement: <div>error page</div>,
+    errorElement: <Error />,
     hydrateFallbackElement: <Loading />,
     children: [
       {
@@ -81,7 +82,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <div>error page</div>,
+        element: <Error />,
       },
     ],
   },

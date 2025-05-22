@@ -1,32 +1,7 @@
 import React, { use } from "react";
-// import { toast } from "react-toastify";
-// ✅Create Group Page ( /createGroup )
-// ✅Create Group Page that can be part of HobbyHub. The form will allow users to create a new hobby group. The form will have:
 
-//         ✅Group Name
-//         ✅Hobby Category (dropdown)
-//         ✅Hobby Category for example =====>
+import { toast, ToastContainer } from "react-toastify";
 
-//                     ✅Photography
-//                     ✅Video Gaming
-//                     ✅Drawing & Painting
-//                     ✅Fishing
-//                     ✅Running
-//                     ✅Cooking
-//                     ✅Reading
-//                     ✅Writing (etc)
-
-// ✅Description
-// ✅Meeting Location
-// ✅Max Members
-// ✅Start Date (deadline equivalent)
-// ✅Image URL
-// ✅User Name (readonly)
-// ✅User Email (readonly)
-// ✅"Create" Button
-// ✅This page will be a private/protected route.
-// ✅Once you fill in the form and click the "Create" button, the data will be saved to the database, and a
-// success message will be displayed using a toast or sweet alert.
 import { AuthContext } from "./Context/AuthContext";
 const CreateGroup = () => {
   const { user } = use(AuthContext);
@@ -64,10 +39,9 @@ const CreateGroup = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertId) {
-          // toast("Wow so easy !");
-          e.target.reset();
+          toast("Group Created Sucessfully");
+          form.reset();
         }
       });
   };
@@ -75,7 +49,6 @@ const CreateGroup = () => {
   return (
     <div className="w-full mx-auto text-center">
       <h1 className="text-5xl font-bold py-10">Create Group</h1>
-
       <div className="card bg-base-100 w-full mx-auto max-w-2xl shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={handleCreateUser} className="fieldset ">

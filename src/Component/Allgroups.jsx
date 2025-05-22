@@ -5,21 +5,6 @@ import Table from "./Table";
 const Allgroups = () => {
   const allgroupdata = useLoaderData();
   const [tableData, settableData] = useState(allgroupdata);
-//   const handleGroupDelete = (id) => {
-//     console.log("hello", id);
-//     fetch(`http://localhost:3000/deleteGroup${id}`, {
-//       method: "DELETE",
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (data.deletedCount) {
-//           const remainingGroup = tableData.filter((table) => table._id !== id);
-//           settableData(remainingGroup);
-//         }
-//         console.log(data);
-//         alert("group deleted");
-//       });
-//   };
 
   return (
     <div className="overflow-x-auto">
@@ -28,10 +13,11 @@ const Allgroups = () => {
         <thead>
           <tr>
             <th>Group Name</th>
-            <th>Author</th>
+            <th>Group Location</th>
+            <th>Category</th>
             <th>Starting Date</th>
             <th>Max Members</th>
-            <th>Group Details</th>
+            <th></th>
           </tr>
         </thead>
         {/* table row  */}
@@ -39,7 +25,8 @@ const Allgroups = () => {
           {tableData.map((table, index) => (
             <Table
               key={index}
-            //   handleGroupDelete={handleGroupDelete}
+              index={index}
+              //   handleGroupDelete={handleGroupDelete}
               table={table}
             ></Table>
           ))}

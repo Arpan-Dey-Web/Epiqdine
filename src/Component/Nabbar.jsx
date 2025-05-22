@@ -3,13 +3,33 @@ import { FaUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { Tooltip } from "react-tooltip";
 import { AuthContext } from "./Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
-
+  const handleSignOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want To SignOut!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, SignOut!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "SignOut SucessFully!",
+          text: "We Will Miss You🥲.",
+          icon: "success",
+        });
+        signOutUser();
+      }
+    });
+  };
 
   const links = (
-    <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center md:flex-row font-semibold md:text-lg">
+    <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center lg:flex-row font-semibold md:text-lg">
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
@@ -75,7 +95,11 @@ const Nabbar = () => {
           >
             <button className=" p-1 border border-amber-500 rounded-full  ">
               {user?.photoURL ? (
-                <img className="w-8 h-8 rounded-full " src={user?.photoURL} alt="" />
+                <img
+                  className="w-8 h-8 rounded-full "
+                  src={user?.photoURL}
+                  alt=""
+                />
               ) : (
                 <FaUser size={25}></FaUser>
               )}
@@ -86,7 +110,7 @@ const Nabbar = () => {
         </div>
         <div className="ml-2">
           {user ? (
-            <button onClick={() => signOutUser()} className="btn">
+            <button onClick={() => handleSignOut()} className="btn">
               LogOut
             </button>
           ) : (

@@ -13,11 +13,10 @@ import { Link } from "react-router";
 //     "startDate": "21-5-25",
 //     "email": "korim@gmail.com"
 // }
-const Table = ({ table }) => {
+const Table = ({ table, index }) => {
   const {
     _id,
     groupName,
-    groupdescription,
     meetingLocation,
     groupCategory,
     maxMembers,
@@ -37,13 +36,13 @@ const Table = ({ table }) => {
           </div>
           <div>
             <div className="font-bold">{groupName}</div>
-            <div className="text-sm opacity-50">{meetingLocation}</div>
           </div>
         </div>
       </td>
       <td>
-        {name}
-        <br />
+        <div className="">{meetingLocation}</div>
+      </td>
+      <td>
         <span className="badge badge-ghost badge-sm">{groupCategory}</span>
       </td>
       <td>{startDate}</td>

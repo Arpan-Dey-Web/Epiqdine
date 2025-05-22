@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const MygroupTable = ({ group }) => {
+const MygroupTable = ({ group, handleGroupDelete }) => {
   const {
     _id,
     groupName,
@@ -15,43 +17,50 @@ const MygroupTable = ({ group }) => {
   } = group;
 
   return (
-    <div>
-      <h1>this is my table</h1>
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                  alt="Avatar Tailwind CSS Component"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
+    <tr>
+      <td>
+        <div className="flex items-center gap-3">
+          <div className="avatar">
+            <div className="mask mask-squircle h-12 w-12">
+              <img src={imageURL} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
-        </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span className="badge badge-ghost badge-sm">
-            Desktop Support Technician
-          </span>
-        </td>
-        <td>Purple</td>
-        <th>
-          <button className="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
-    </div>
+          <div>
+            <div className="font-bold">{groupName}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div className="text-sm ">{meetingLocation}</div>
+      </td>
+      <td>
+        {name} <span className="font-semibold text-sm">(You)</span>
+        <br />
+      </td>
+      <td>
+        <span className="badge badge-ghost badge-sm">{groupCategory}</span>
+      </td>
+
+      <td>{startDate}</td>
+      <td>{maxMembers}</td>
+      <td className="flex gap-2">
+        {/* details button */}
+        <Link to={`/group/${_id}`} className="btn">
+          Details
+        </Link>
+        {/* update button */}
+        <Link to={`/updateGroup/${_id}`} className="btn">
+          Update
+        </Link>
+        {/* delete button */}
+        <button
+          onClick={() => handleGroupDelete(_id)}
+          className="btn bg-red-500"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
   );
 };
 

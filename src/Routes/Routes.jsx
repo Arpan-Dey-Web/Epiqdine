@@ -9,13 +9,14 @@ import Login from "../Component/Login";
 import GroupDetails from "../Component/GroupDetails";
 import UpdateGroup from "../Component/UpdateGroup";
 import PrivateRoute from "./PrivateRoute";
+import Loading from "../Component/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
     errorElement: <div>error page</div>,
-    hydrateFallbackElement: <div>Loading.........</div>,
+    hydrateFallbackElement: <Loading />,
     children: [
       {
         index: true,
@@ -41,7 +42,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "myGroups/:email",
-        loader: ({params}) => fetch(`http://localhost:3000/my-groups/${params.email}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/my-groups/${params.email}`),
         element: (
           <PrivateRoute>
             <MyGroup></MyGroup>
@@ -68,7 +70,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: " /updateGroup/:id",
+        path: "/updateGroup/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/creategroups/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateGroup> </UpdateGroup>

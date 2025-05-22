@@ -1,9 +1,11 @@
 import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "./Context/AuthContext";
+import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
-  const {  setUser, createUser, updataUserProfile } = use(AuthContext);
+  const { setUser, createUser, updataUserProfile } = use(AuthContext);
   const navigate = useNavigate();
   const registerAccount = (e) => {
     e.preventDefault();
@@ -15,28 +17,40 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // alert("Account created sucessfully")
+        Swal.fire({
+          title: "Registration Sucessfully",
+          icon: "success",
+          draggable: true,
+        });
         updataUserProfile({
           displayName: name,
           photoURL: imageUrl,
         })
           .then((result) => {
+            toast("user profile updated");
             setUser({ ...user, displayName: name, photoURL: imageUrl });
             navigate("/");
           })
           .catch((error) => {
-            console.log(error);
-            setUser(user)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Profile Not Updated",
+            });
+            setUser(user);
           });
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Email Already Exist!!!",
+        });
       });
   };
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold my-10">Register Now!</h1>
-      <div className="text-center lg:text-left"></div>
       <div className="card mx-auto bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={registerAccount} className="fieldset">
@@ -85,6 +99,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

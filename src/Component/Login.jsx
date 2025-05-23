@@ -19,7 +19,7 @@ const Login = () => {
           draggable: true,
         });
         navigate(`${location.state ? location.state : "/"}`);
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         Swal.fire({

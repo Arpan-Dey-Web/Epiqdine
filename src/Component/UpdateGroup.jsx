@@ -47,7 +47,7 @@ const UpdateGroup = () => {
           startDate: updated_startDate,
         };
 
-        fetch(`http://localhost:3000/groups/${_id}`, {
+        fetch(`https://assaignment-10-server-side.vercel.app/groups/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

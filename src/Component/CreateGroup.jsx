@@ -14,7 +14,7 @@ const CreateGroup = () => {
     const groupCategory = form.groupCategory.value;
     const groupdescription = form.groupDescription.value;
     const startDate = form.startdate.value;
-    console.log(startDate);
+    // console.log(startDate);
     const meetingLocation = form.meetingLocation.value;
     const maxMembers = form.maxmembers.value;
     const imageURL = form.imageURL.value;
@@ -31,7 +31,7 @@ const CreateGroup = () => {
       startDate,
       email,
     };
-    fetch("http://localhost:3000/creategroups", {
+    fetch("https://assaignment-10-server-side.vercel.app/creategroups", {
       method: "POST",
       headers: {
         "content-type": "application/json",

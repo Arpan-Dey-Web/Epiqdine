@@ -24,9 +24,12 @@ const MyGroup = () => {
           icon: "success",
         });
 
-        fetch(`http://localhost:3000/deleteGroup${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assaignment-10-server-side.vercel.app/deleteGroup${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

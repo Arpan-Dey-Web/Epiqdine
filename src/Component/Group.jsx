@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Group = ({ group }) => {
   const {
     groupName,
-    groupdescription,
+ 
     startDate,
     meetingLocation,
     groupCategory,
@@ -25,10 +25,19 @@ const Group = ({ group }) => {
             {groupName}
           </span>
 
-          <h2 className="text- font-semibold text-gray-400 tracking-wide">
-            Date: {startDate}
-          </h2>
-          <p className="text-gray-400 text-md mt-2">Place: {meetingLocation}</p>
+          <div className="flex justify-between">
+            <div>
+              <h2 className="text- font-semibold text-gray-400 tracking-wide">
+                Date: {startDate}
+              </h2>
+              <p className="text-gray-400 text-md mt-2">
+                Place: {meetingLocation}
+              </p>
+            </div>
+            <div className=" badge  badge-primary  ">
+              {groupCategory}
+            </div>
+          </div>
         </div>
 
         <div className="text-center pt-3">

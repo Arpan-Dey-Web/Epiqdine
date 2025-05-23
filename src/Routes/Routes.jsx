@@ -21,12 +21,16 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/creategroups"),
+        loader: () =>
+          fetch("https://assaignment-10-server-side.vercel.app/creategroups"),
         element: <Home />,
       },
       {
         path: "/allGroups",
-        loader: () => fetch("http://localhost:3000/creategroups/all-data"),
+        loader: () =>
+          fetch(
+            "https://assaignment-10-server-side.vercel.app/creategroups/all-data"
+          ),
         element: (
           <PrivateRoute>
             <Allgroups />
@@ -44,7 +48,9 @@ export const router = createBrowserRouter([
       {
         path: "myGroups/:email",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/my-groups/${params.email}`),
+          fetch(
+            `https://assaignment-10-server-side.vercel.app/my-groups/${params.email}`
+          ),
         element: (
           <PrivateRoute>
             <MyGroup></MyGroup>
@@ -63,7 +69,9 @@ export const router = createBrowserRouter([
       {
         path: "/group/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/creategroups/${params.id}`),
+          fetch(
+            `/https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <GroupDetails></GroupDetails>
@@ -73,7 +81,9 @@ export const router = createBrowserRouter([
       {
         path: "/updateGroup/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/creategroups/${params.id}`),
+          fetch(
+            `https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdateGroup> </UpdateGroup>

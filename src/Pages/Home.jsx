@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Typewriter } from "react-simple-typewriter";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -87,15 +88,22 @@ const Home = () => {
 
       <div>
         <h1 className=" text-4xl md:text-5xl text-white text-center pt-10 pb-5 font-bold logoName">
-          Latest Group for Explore
+          Latest Group for
+          <span className="ml-4">
+         
+            <Typewriter
+              words={["Explore", "Creators", "Thinkers", "Innovators!"]}
+              loop={Autoplay}
+              cursor
+              cursorStyle="_"
+            />
+          </span>
         </h1>
         <p className="font-light text-base md:text-xl logoName text-center  text-gray-400  max-w-4xl mx-auto">
           Discover new ideas, share your voice, and connect with like-minded
-          explorers.
-           This latest group is your gateway to inspiration,
-          collaboration, and meaningful journeys.
-         
-          join now and start exploring together{`=>`}
+          explorers. This latest group is your gateway to inspiration,
+          collaboration, and meaningful journeys. join now and start exploring
+          together{`=>`}
         </p>
       </div>
       {/* all groups looping here */}
@@ -104,10 +112,6 @@ const Home = () => {
           <Group key={index} group={group}></Group>
         ))}
       </div>
-
-
-
-     
     </div>
   );
 };

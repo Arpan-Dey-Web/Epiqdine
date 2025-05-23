@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useLoaderData } from "react-router";
 import Group from "../Component/Group";
-import { toast, ToastContainer } from "react-toastify";
+
 const Home = () => {
   const allgroup = useLoaderData();
   const [groups, setGroups] = useState(allgroup);
@@ -105,8 +105,7 @@ const Home = () => {
         ))}
       </div>
 
-      
-      <ToastContainer />
+
 
      
     </div>

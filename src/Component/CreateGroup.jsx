@@ -51,11 +51,11 @@ const CreateGroup = () => {
     "w-full p-3 rounded-lg border border-slate-300 text-white  focus:outline-none focus:ring-2 focus:ring-blue-500 transition capitalize cursor-pointer";
 
   return (
-    <div className="w-full mx-auto text-center">
+    <div className="w-full mx-auto text-center ">
       <h1 className="text-5xl font-bold   py-10 logoName text-white">
         Create Group
       </h1>
-      <div className="card  w-full mx-auto max-w-2xl  shadow-2xl">
+      <div className="card  w-full mx-auto  border border-gray-500 max-w-2xl  shadow-2xl">
         <div className="card-body   rounded-2xl">
           <form onSubmit={handleCreateUser} className="fieldset ">
             <div className="grid grid-cols-1 gap-2  lg:grid-cols-2 text-white">

@@ -31,21 +31,30 @@ const Nabbar = () => {
   const links = (
     <div className="flex gap-4  flex-col p-2  text-xl md:items-center md:justify-center lg:flex-row font-semibold md:text-lg">
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <button>
+          <NavLink to={"/"}>Home</NavLink>
+        </button>
       </li>
       <li>
-        <NavLink to={"/allGroups"}>All Groups</NavLink>
+        <button>
+          <NavLink to={"/createGroup"}>Create Group</NavLink>
+        </button>
       </li>
       <li>
-        <NavLink to={"/createGroup"}>Create Group</NavLink>
+        <button>
+          <NavLink to={"/allGroups"}>All Groups</NavLink>
+        </button>
       </li>
+
       <li>
-        <NavLink to={`/myGroups/${user?.email}`}>My Groups</NavLink>
+        <button>
+          <NavLink to={`/myGroups/${user?.email}`}>My Groups</NavLink>
+        </button>
       </li>
     </div>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm my-4">
+    <div className="navbar nabbar shadow-sm rounded-2xl my-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,13 +83,19 @@ const Nabbar = () => {
 
         <div className="flex items-center gap-2">
           <div className="w-14 rounded-full">
-            <img className="rounded-full h-10 " src="/public/Screenshot 2025-05-22 210421.png" alt="" />
+            <img
+              className="rounded-full h-10 "
+              src="/public/Screenshot 2025-05-22 210421.png"
+              alt=""
+            />
           </div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
             <span className="md:text-3xl  font-extrabold text-yellow-400">
               Inner
             </span>
-            <span className="text-blue-500 md:text-3xl font-extrabold">Self</span>
+            <span className="text-blue-500 md:text-3xl font-extrabold">
+              Self
+            </span>
           </Link>
         </div>
       </div>
@@ -88,7 +103,7 @@ const Nabbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end ">
         {/* user avatar */}
         <div>
           <div
@@ -106,24 +121,35 @@ const Nabbar = () => {
                   alt=""
                 />
               ) : (
-                <FaUser size={25}></FaUser>
+                <span className="p-2">
+                  <FaUser size={25}></FaUser>
+                </span>
               )}
             </button>
           </div>
 
           <Tooltip id="my-tooltip" />
         </div>
-        <div className="ml-2">
+        <div className="ml-4  ">
           {user ? (
-            <button onClick={() => handleSignOut()} className="btn">
+            <button
+              onClick={() => handleSignOut()}
+              className=" inline-block rounded-full border border-indigo-600 px-6 py-2 md:px-12 md:py-3  font-medium text-white hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden  md:text-lg "
+            >
               LogOut
             </button>
           ) : (
             <div className="flex gap-3">
-              <Link to={"/logIn"} className="btn">
+              <Link
+                to={"/logIn"}
+                className="inline-block rounded-full border border-indigo-600 px-6 py-2 md:px-12 md:py-3  font-medium text-white hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden  md:text-lg"
+              >
                 LogIn
               </Link>
-              <Link to={"/register"} className="btn">
+              <Link
+                to={"/register"}
+                className="inline-block rounded-full border border-indigo-600 px-6 py-2 md:px-12 md:py-3  font-medium text-white hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden  md:text-lg"
+              >
                 Register
               </Link>
             </div>

@@ -6,13 +6,14 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useLoaderData } from "react-router";
 import Group from "../Component/Group";
+import { toast, ToastContainer } from "react-toastify";
 const Home = () => {
   const allgroup = useLoaderData();
   const [groups, setGroups] = useState(allgroup);
   const sliderClass =
     "flex items-center justify-center overflow-hidden  h-[400px] rounded-2xl";
   const sliderImageClass = "object-co w-full rounded-2xl  ";
-
+ 
   return (
     <div>
       {/* slider */}
@@ -85,15 +86,16 @@ const Home = () => {
       </div>
 
       <div>
-        <h1 className="text-5xl text-center py-10 font-bold logoName">
+        <h1 className=" text-4xl md:text-5xl text-white text-center pt-10 pb-5 font-bold logoName">
           Latest Group for Explore
         </h1>
-        <p className="font-light text-xl logoName text-center text-black">
+        <p className="font-light text-base md:text-xl logoName text-center  text-gray-400  max-w-4xl mx-auto">
           Discover new ideas, share your voice, and connect with like-minded
           explorers.
-          <br /> This latest group is your gateway to inspiration,
-          collaboration, and meaningful journeys.<br />
-          join now and start exploring together.
+           This latest group is your gateway to inspiration,
+          collaboration, and meaningful journeys.
+         
+          join now and start exploring together{`=>`}
         </p>
       </div>
       {/* all groups looping here */}
@@ -102,6 +104,11 @@ const Home = () => {
           <Group key={index} group={group}></Group>
         ))}
       </div>
+
+      
+      <ToastContainer />
+
+     
     </div>
   );
 };

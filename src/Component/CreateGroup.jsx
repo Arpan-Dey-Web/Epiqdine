@@ -14,6 +14,7 @@ const CreateGroup = () => {
     const groupCategory = form.groupCategory.value;
     const groupdescription = form.groupDescription.value;
     const startDate = form.startdate.value;
+    console.log(startDate);
     const meetingLocation = form.meetingLocation.value;
     const maxMembers = form.maxmembers.value;
     const imageURL = form.imageURL.value;
@@ -46,21 +47,25 @@ const CreateGroup = () => {
       });
   };
   const inputClass = "flex flex-col  justify-center items-center mb-2";
+  const inputBoxClass =
+    "w-full p-3 rounded-lg border border-slate-300 text-white  focus:outline-none focus:ring-2 focus:ring-blue-500 transition capitalize cursor-pointer";
 
   return (
     <div className="w-full mx-auto text-center">
-      <h1 className="text-5xl font-bold py-10">Create Group</h1>
-      <div className="card bg-base-100 w-full mx-auto max-w-2xl  shadow-2xl">
-        <div className="card-body">
+      <h1 className="text-5xl font-bold   py-10 logoName text-white">
+        Create Group
+      </h1>
+      <div className="card  w-full mx-auto max-w-2xl  shadow-2xl">
+        <div className="card-body   rounded-2xl">
           <form onSubmit={handleCreateUser} className="fieldset ">
-            <div className="grid grid-cols-1 gap-2   lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-2  lg:grid-cols-2 text-white">
               {/* 1st div */}
               <div>
                 <span className={inputClass}>
-                  <label className="label py-2">Group Name</label>
+                  <label className="label py-2 ">Group Name</label>
                   <input
                     type="text"
-                    className="input"
+                    className={inputBoxClass}
                     name="groupName"
                     placeholder="Group Name "
                     required
@@ -71,7 +76,7 @@ const CreateGroup = () => {
                   <input
                     type="text"
                     name="groupCategory"
-                    className="input"
+                    className={inputBoxClass}
                     placeholder="Hobby Category"
                     list="browsers"
                     required
@@ -91,7 +96,7 @@ const CreateGroup = () => {
                   <input
                     type="text"
                     name="groupDescription"
-                    className="input"
+                    className={inputBoxClass}
                     placeholder="Group Description"
                     required
                   />
@@ -100,7 +105,7 @@ const CreateGroup = () => {
                   <label className="label py-2">Meeting Location</label>
                   <input
                     type="text"
-                    className="input"
+                    className={inputBoxClass}
                     placeholder="Meeting Location"
                     name="meetingLocation"
                     required
@@ -110,7 +115,7 @@ const CreateGroup = () => {
                   <label className="label py-2">Max Members</label>
                   <input
                     type="number"
-                    className="input"
+                    className={inputBoxClass}
                     placeholder="Max Members"
                     name="maxmembers"
                     required
@@ -124,8 +129,8 @@ const CreateGroup = () => {
                 <span className={inputClass}>
                   <label className="label py-2">Start Date</label>
                   <input
-                    type="text"
-                    className="input"
+                    type="date"
+                    className={inputBoxClass}
                     placeholder="Starting Date"
                     name="startdate"
                     required
@@ -135,7 +140,7 @@ const CreateGroup = () => {
                   <label className="label py-2">Image URL</label>
                   <input
                     type="text"
-                    className="input"
+                    className={inputBoxClass}
                     placeholder="ImageURL"
                     name="imageURL"
                     required
@@ -145,7 +150,7 @@ const CreateGroup = () => {
                   <label className="label py-2">Your Name</label>
                   <input
                     type="text"
-                    className="input"
+                    className={`${inputBoxClass}  cursor-not-allowed`}
                     placeholder="Your Name"
                     name="name"
                     value={displayName}
@@ -156,7 +161,7 @@ const CreateGroup = () => {
                   <label className="label py-2">Your Email</label>
                   <input
                     type="email"
-                    className="input"
+                    className={`${inputBoxClass} cursor-not-allowed`}
                     placeholder="Your Email"
                     name="email"
                     value={email}
@@ -165,7 +170,10 @@ const CreateGroup = () => {
                 </span>
               </div>
             </div>
-            <button type="submit" className="btn btn-neutral mt-4 w-1/2 mx-auto">
+            <button
+              type="submit"
+              className="inline-block rounded-full border border-indigo-600 px-7 py-2  font-medium text-white hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden  md:text-lg"
+            >
               Create Group
             </button>
           </form>

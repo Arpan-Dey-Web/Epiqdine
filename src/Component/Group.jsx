@@ -10,30 +10,32 @@ const Group = ({ group }) => {
     groupCategory,
     maxMembers,
     imageURL,
-    _id
+    _id,
   } = group;
   return (
     <div>
-      <div className="max-w-md p-6 rounded-md shadow-md ">
+      <div className="max-w-md p-6 rounded-md border border-gray-500 shadow-md ">
         <img
           src={imageURL}
           alt=""
           className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
         />
-        <div className="mt-6 mb-2">
-          <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">
+        <div className="mt-6 mb-2 text-white w-12/12 mx-auto">
+          <span className="block text-lg font-medium tracking-widest uppercase  text-center mb-8  border-b-2 border-gray-700">
             {groupName}
           </span>
-          <h2 className="text-xl font-semibold tracking-wide">
-            {groupCategory}
-          </h2>
-          <h2 className="text-lg font-semibold tracking-wide">
+
+          <h2 className="text- font-semibold text-gray-400 tracking-wide">
             Date: {startDate}
           </h2>
+          <p className="text-gray-400 text-md mt-2">Place: {meetingLocation}</p>
         </div>
-        <p className="dark:text-gray-800">{groupdescription}</p>
+
         <div className="text-center pt-3">
-          <Link to={`/group/${_id}`} className="btn">
+          <Link
+            to={`/group/${_id}`}
+            className="btn text-white btn-outline btn-info "
+          >
             See Details
           </Link>
         </div>

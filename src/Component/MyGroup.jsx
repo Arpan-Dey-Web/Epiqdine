@@ -45,19 +45,22 @@ const MyGroup = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-white bg-slate-500">
+              <th>No</th>
               <th>Group Name</th>
               <th>Group Location</th>
               <th>Author</th>
               <th>Category</th>
               <th>Starting Date</th>
               <th>Max Members</th>
+              <th></th>
             </tr>
           </thead>
           {/* table row */}
           <tbody>
             {myGroup.map((group, index) => (
               <MygroupTable
+                index={index}
                 key={index}
                 group={group}
                 handleGroupDelete={handleGroupDelete}

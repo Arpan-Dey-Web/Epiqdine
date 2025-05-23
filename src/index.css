@@ -8,25 +8,13 @@
 
 html {
   font-family: "Poppins", sans-serif;
+  background-color: #101828;
 }
-/* :root { */
-/* Core Colors */
-/* --color-primary: #00B8D9;         
-  --color-secondary: #A782EC;       
-  --color-accent: #00FFC6;          
-  --color-highlight: #C084FC;       
-  --color-button-hover: #22D3EE;     */
 
-/* Background Colors */
-/* --color-bg-light: #FFFFFF;       
-  --color-bg-default: #F3F4F6;     
-  --color-bg-dark: #0F172A;         */
-
-/* Text Colors */
-/* --color-text-primary: #1F2937;   
-  --color-text-secondary: #9CA3AF;  */
-/* } */
-
+.nabbar{
+  background-color: #1E293B;
+  color: #fff;
+}
 .logoName {
   font-family: "Fira Code", monospace;
 }
@@ -35,7 +23,6 @@ html {
   height: 50px;
   width: 50px;
 }
-
 .loader:before,
 .loader:after {
   border-radius: 50%;
@@ -99,10 +86,11 @@ html {
 }
 
 .active {
-  color: #2511da;
+  color: #3B82F6;
   border-bottom: 2px solid rgb(223, 133, 16);
 }
 
-/* .background{
-    background-color: #283593;
-} */
+
+.primaryBtn{
+  background: #10b981 ;
+}

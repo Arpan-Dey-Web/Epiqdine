@@ -4,9 +4,13 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center rounded-2xl my-10 bg-primary text-primary-content p-10">
+    <footer className="footer footer-horizontal footer-center rounded-2xl my-10 bg-[#314158] text-white py-10text-primary-content p-10">
       <aside>
-       <img className="rounded-2xl w-18" src="/public/Screenshot 2025-05-22 210421.png" alt="" />
+        <img
+          className="rounded-2xl w-18"
+          src="/public/Screenshot 2025-05-22 210421.png"
+          alt=""
+        />
         <div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
             <span className=" text-3xl  font-extrabold text-yellow-400">

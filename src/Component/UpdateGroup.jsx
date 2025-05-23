@@ -121,7 +121,7 @@ const UpdateGroup = () => {
                     Start Date (deadline equivalent)
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     className="input"
                     placeholder="Starting Date"
                     defaultValue={startDate}

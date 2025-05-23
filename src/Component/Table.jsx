@@ -26,7 +26,8 @@ const Table = ({ table, index }) => {
   } = table;
 
   return (
-    <tr className="bg-amber-300 text-red-400">
+    <tr className="bg-slate-700 text-gray-400 border-b-2">
+      <td>{index + 1}.</td>
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">
@@ -35,21 +36,26 @@ const Table = ({ table, index }) => {
             </div>
           </div>
           <div>
-            <div className="font-bold">{groupName}</div>
+            <div className="font-bold text-white capitalize">{groupName}</div>
           </div>
         </div>
       </td>
       <td>
-        <div className="">{meetingLocation}</div>
+        <div className="capitalize">{meetingLocation}</div>
       </td>
       <td>
-        <span className="badge badge-ghost badge-sm">{groupCategory}</span>
+        <span className="badge bg-slate-500 border-none text-gray-200 w-36">
+          {groupCategory}
+        </span>
       </td>
       <td>{startDate}</td>
       <td>{maxMembers}</td>
       <td>
-        <Link to={`/group/${_id}`} className="btn ">
-          Details
+        <Link
+          to={`/group/${_id}`}
+          className="btn text-white btn-outline btn-info"
+        >
+          View
         </Link>
       </td>
     </tr>

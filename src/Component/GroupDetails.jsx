@@ -41,7 +41,6 @@ const GroupDetails = () => {
         />
 
         <h1 className="text-3xl font-bold tracking-wide text-center  border-b border-gray-600 p-2 w-md mx-auto  capitalize">
-          {" "}
           {groupName}
         </h1>
 

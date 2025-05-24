@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 
@@ -16,7 +16,7 @@ const UpdateGroup = () => {
     email,
     name,
   } = useLoaderData();
-
+  const navigate = useNavigate();
   const handleUpdateGroup = (e) => {
     e.preventDefault();
     Swal.fire({
@@ -56,6 +56,7 @@ const UpdateGroup = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            navigate("/");
             toast("Group Updated!!!");
           });
       } else if (result.isDenied) {

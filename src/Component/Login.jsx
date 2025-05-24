@@ -2,7 +2,6 @@ import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "./Context/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa6";
 
@@ -19,7 +18,7 @@ const Login = () => {
           draggable: true,
         });
         navigate(`${location.state ? location.state : "/"}`);
-        // console.log(result);
+
       })
       .catch((error) => {
         Swal.fire({

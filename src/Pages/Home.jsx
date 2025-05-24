@@ -12,10 +12,11 @@ import Group from "../Component/Group";
 const Home = () => {
   const allgroup = useLoaderData();
   const [groups, setGroups] = useState(allgroup);
+
   const sliderClass =
     "flex items-center justify-center overflow-hidden  h-[400px] rounded-2xl";
   const sliderImageClass = "object-co w-full rounded-2xl  ";
- 
+
   return (
     <div>
       {/* slider */}
@@ -87,25 +88,33 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div>
-        <h1 className=" text-4xl md:text-5xl text-white text-center pt-10 pb-5 font-bold logoName">
+      <div className="bg-base-100 text-base-content py-16 px-4 md:px-10 rounded-2xl shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center logoName leading-tight">
           Latest Group for
-          <span className="ml-4">
+          <span className="ml-3 text-primary">
             <Typewriter
               words={["Explore", "Creators", "Thinkers", "Innovators!"]}
-              loop={Autoplay}
+              loop={true}
               cursor
               cursorStyle="_"
             />
           </span>
         </h1>
-        <p className="font-light text-base md:text-xl logoName text-center  text-gray-400  max-w-4xl mx-auto">
+
+        <p className="mt-6 text-center  dark:text-gray-300 md:text-xl text-black max-w-3xl mx-auto logoName leading-relaxed">
           Discover new ideas, share your voice, and connect with like-minded
-          explorers. This latest group is your gateway to inspiration,
-          collaboration, and meaningful journeys. join now and start exploring
-          together{`=>`}
+          explorers.
+          <br className="hidden md:block" />
+          This latest group is your gateway to
+          <span className="text-primary font-medium"> inspiration</span>,
+          <span className="text-secondary font-medium"> collaboration</span>,
+          and meaningful journeys.
+          <span className="text-primary-content font-medium">Join now</span>
+          and start exploring together
+          <span className="text-accent ml-1">&rarr;</span>
         </p>
       </div>
+
       {/* all groups looping here */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 rounded-2xl w-full mx-auto py-10">
         {groups.map((group, index) => (
@@ -113,7 +122,7 @@ const Home = () => {
         ))}
       </div>
 
-      <section className="bg-[#101828]">
+      <section className="">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
             How it works
@@ -210,9 +219,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-700">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                    <path d="M494..." />
-                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 512 512"
+                  ></svg>
                   <span className="text-xl font-bold">4.8</span>
                 </div>
               </div>
@@ -246,9 +256,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-700">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                    <path d="M494..." />
-                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 512 512"
+                  ></svg>
                   <span className="text-xl font-bold">5.0</span>
                 </div>
               </div>
@@ -281,9 +292,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-700">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                    <path d="M494..." />
-                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 512 512"
+                  ></svg>
                   <span className="text-xl font-bold">4.6</span>
                 </div>
               </div>
@@ -317,9 +329,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-700">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                    <path d="M494..." />
-                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 512 512"
+                  ></svg>
                   <span className="text-xl font-bold">4.9</span>
                 </div>
               </div>
@@ -353,9 +366,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 dark:text-yellow-700">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                    <path d="M494..." />
-                  </svg>
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 512 512"
+                  ></svg>
                   <span className="text-xl font-bold">4.7</span>
                 </div>
               </div>

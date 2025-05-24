@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* nabbar logo font  */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&display=swap");
 /* poppins font */
@@ -13,7 +17,7 @@ html {
 
 .nabbar{
   background-color: #1E293B;
-  color: #fff;
+
 }
 .logoName {
   font-family: "Fira Code", monospace;

@@ -16,6 +16,8 @@ const logInWithGoogle = () => {
   return signInWithPopup(auth, googleProvider);
 };
 const AuthProvider = ({ children }) => {
+ 
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +34,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
   const updataUserProfile = (profile) => {
-    return updateProfile(auth.currentUser,  profile );
+    return updateProfile(auth.currentUser, profile);
   };
 
   useEffect(() => {
@@ -55,6 +57,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     setLoading,
+    
   };
   return <AuthContext value={context}>{children}</AuthContext>;
 };

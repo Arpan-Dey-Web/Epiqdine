@@ -11,11 +11,11 @@ const MygroupTable = ({ group, handleGroupDelete, index }) => {
     groupCategory,
     imageURL,
     maxMembers,
-    startDate,
+    lastDate,
     email,
     name,
   } = group;
-
+const date = lastDate.split("T")
   return (
     <tr className="bg-slate-700 text-gray-400 border-b-2">
       <td>{index + 1}</td>
@@ -44,7 +44,7 @@ const MygroupTable = ({ group, handleGroupDelete, index }) => {
         </span>
       </td>
 
-      <td>{startDate}</td>
+      <td>{date[0]}</td>
       <td>{maxMembers}</td>
       <td className="flex gap-2">
         {/* details button */}
@@ -52,7 +52,7 @@ const MygroupTable = ({ group, handleGroupDelete, index }) => {
           to={`/group/${_id}`}
           className="btn text-white btn-outline btn-info"
         >
-         View
+          View
         </Link>
         {/* update button */}
         <Link

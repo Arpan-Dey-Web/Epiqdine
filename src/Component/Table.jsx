@@ -22,9 +22,9 @@ const Table = ({ table, index }) => {
     maxMembers,
     imageURL,
     name,
-    startDate,
+    lastDate,
   } = table;
-
+  const date = lastDate.split("T");
   return (
     <tr className="bg-slate-700 text-gray-400 border-b-2">
       <td>{index + 1}.</td>
@@ -48,7 +48,7 @@ const Table = ({ table, index }) => {
           {groupCategory}
         </span>
       </td>
-      <td>{startDate}</td>
+      <td>{date[0]}</td>
       <td>{maxMembers}</td>
       <td>
         <Link

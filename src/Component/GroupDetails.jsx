@@ -27,6 +27,7 @@ const GroupDetails = () => {
     email,
     name,
   } = useLoaderData();
+  console.log(imageURL)
 
   const handleJoinButton = () => {
     toast("Group Joined Sucessfull")
@@ -36,7 +37,7 @@ const GroupDetails = () => {
       <div className="max-w-3xl mx-auto  border border-gray-600	bg-slate-800/60 backdrop-blur-lg rounded-2xl	 shadow-xl p-6 space-y-6">
         <img
           src={imageURL}
-          alt={`${groupName} banner`}
+          alt=""
           className="w-full h-64 object-cover rounded-xl border border-indigo-600 shadow-md"
         />
 

@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
         path: "/group/:id",
         loader: ({ params }) =>
           fetch(
-            `/https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
+            `https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
           ),
         element: (
           <PrivateRoute>

@@ -122,7 +122,7 @@ const Home = () => {
         ))}
       </div>
 
-      <section className="">
+      <section className="bg-[#101828]">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
             How it works

@@ -54,10 +54,11 @@ const CreateGroup = () => {
     "w-full p-3 rounded-md border border-gray-300 bg-[#101828] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition capitalize";
 
   return (
-    <div className="min-h-screen bg-[#101828] flex flex-col justify-center items-center px-4 py-12">
-      <h1 className="text-4xl font-extrabold text-white mb-10">Create Group</h1>
-
+    <div className="min-h-screen  flex flex-col justify-center items-center px-4 py-12">
       <div className="bg-[#101828] shadow-lg rounded-2xl w-full max-w-3xl p-8 border border-gray-700">
+        <h1 className="text-4xl font-extrabold text-white mb-10 text-center">
+          Create Group
+        </h1>
         <form onSubmit={handleCreateUser} className="space-y-6">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Left Side */}

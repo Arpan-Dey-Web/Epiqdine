@@ -70,12 +70,12 @@ const UpdateGroup = () => {
 
   return (
     <div>
-      <div className="w-full mx-auto text-center">
-        <h1 className="text-5xl font-bold py-10 text-white logoName">
-          Update Group
-        </h1>
-
-        <div className="card w-full mx-auto border border-gray-500 max-w-2xl shadow-2xl">
+      <div className="w-full mx-auto text-center ">
+      
+        <div className="card w-full mx-auto border border-gray-500 max-w-2xl shadow-2xl bg-[#101828]">
+          <h1 className="text-5xl font-bold py-5 text-white logoName">
+            Update Group
+          </h1>
           <div className="card-body rounded-2xl">
             <form onSubmit={handleUpdateGroup} className="fieldset">
               <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 text-white">

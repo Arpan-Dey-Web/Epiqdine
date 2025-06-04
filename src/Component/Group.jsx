@@ -15,23 +15,23 @@ const Group = ({ group }) => {
   const date = lastDate.split("T");
 
   return (
-    <div className="max-w-md p-6 rounded-md border border-gray-300 shadow-md bg-white">
+    <div className="max-w-md p-6 rounded-md border border-gray-300 shadow-md ">
       <img
         src={imageURL}
         alt={groupName}
         className="object-cover object-center w-full rounded-md h-72"
       />
-      <div className="mt-6 mb-2 w-full mx-auto text-gray-900">
+      <div className="mt-6 mb-2 w-full mx-auto text-orange-400">
         <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-300">
           {groupName}
         </span>
 
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="font-semibold text-gray-700 tracking-wide">
+            <h2 className="font-semibold text-gray-400 tracking-wide">
               Date: {date[0]}
             </h2>
-            <p className="text-gray-600 text-md mt-1">
+            <p className="text-gray-400 text-md mt-1 capitalize">
               Place: {meetingLocation}
             </p>
           </div>

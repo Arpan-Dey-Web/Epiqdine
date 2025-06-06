@@ -38,13 +38,10 @@ const Nabbar = ({ themeData, setThemeData }) => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/createGroup"}>Create Group</NavLink>
+        <NavLink to={"/allFoods"}>All Foods</NavLink>
       </li>
       <li>
-        <NavLink to={"/allGroups"}>All Groups</NavLink>
-      </li>
-      <li>
-        <NavLink to={`/myGroups/${user?.email}`}>My Groups</NavLink>
+        <NavLink to={"/gallery"}>Gallery</NavLink>
       </li>
     </ul>
   );
@@ -78,16 +75,16 @@ const Nabbar = ({ themeData, setThemeData }) => {
         </div>
 
         <Link to={"/"} className="flex items-center gap-2 ml-2">
-          <div className="w-10 h-10 hidden md:block">
+          <div className="w-10 h-10 object-center hidden md:block">
             <img
-              src="/public/Screenshot 2025-05-22 210421.png"
+              src="/public/logo.png"
               className="rounded-full"
               alt="logo"
             />
           </div>
           <span className="text-2xl md:text-3xl font-bold">
-            <span className="text-primary">Inner</span>
-            <span className="text-secondary">Self</span>
+            <span className="text-yellow-600">Epiq</span>
+            <span className="text-yellow-300">Dine</span>
           </span>
         </Link>
       </div>
@@ -107,26 +104,30 @@ const Nabbar = ({ themeData, setThemeData }) => {
         </button>
 
         {/* User Avatar */}
-        <div>
-          <div
-            data-tooltip-id="my-tooltip"
-            data-tooltip-content={user?.displayName || "No user"}
-            data-tooltip-place="top"
-          >
-            <button className="p-1 border border-accent rounded-full">
-              {user?.photoURL ? (
-                <img
-                  src={user?.photoURL}
-                  className="w-10 h-10 rounded-full"
-                  alt="user"
-                />
-              ) : (
-                <FaUser size={24} />
-              )}
-            </button>
+        {user ? (
+          <div>
+            <div
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user?.displayName || "No user"}
+              data-tooltip-place="top"
+            >
+              <button className="p-1 border border-accent rounded-full">
+                {user?.photoURL ? (
+                  <img
+                    src={user?.photoURL}
+                    className="w-10 h-10 rounded-full"
+                    alt="user"
+                  />
+                ) : (
+                  <FaUser size={24} />
+                )}
+              </button>
+            </div>
+            <Tooltip id="my-tooltip" />
           </div>
-          <Tooltip id="my-tooltip" />
-        </div>
+        ) : (
+          " "
+        )}
 
         {/* Auth Buttons */}
         {user ? (
@@ -144,12 +145,7 @@ const Nabbar = ({ themeData, setThemeData }) => {
             >
               LogIn
             </Link>
-            <Link
-              to={"/register"}
-              className="btn btn-primary rounded-full text-white"
-            >
-              Register
-            </Link>
+           
           </div>
         )}
       </div>

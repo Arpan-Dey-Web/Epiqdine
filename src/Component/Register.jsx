@@ -90,6 +90,16 @@ const Register = () => {
               </div>
 
               <div>
+                <span className={inputClass}>
+                  <label className="label py-2">Image URL</label>
+                  <input
+                    type="text"
+                    className={inputBoxClass}
+                    placeholder="Image URL"
+                    name="imageUrl"
+                  />
+                </span>
+
                 <span className={`${inputClass} relative`}>
                   <label className="label py-2">Password</label>
                   <input
@@ -106,16 +116,6 @@ const Register = () => {
                   >
                     {show ? <FaRegEyeSlash size={15} /> : <FaEye size={15} />}
                   </span>
-                </span>
-
-                <span className={inputClass}>
-                  <label className="label py-2">Image URL</label>
-                  <input
-                    type="text"
-                    className={inputBoxClass}
-                    placeholder="Image URL"
-                    name="imageUrl"
-                  />
                 </span>
               </div>
             </div>

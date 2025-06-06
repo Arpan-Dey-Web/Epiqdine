@@ -8,15 +8,13 @@ const Footer = () => {
       <aside>
         <img
           className="rounded-2xl w-18"
-          src="/public/Screenshot 2025-05-22 210421.png"
+          src="/public/logo.png"
           alt=""
         />
         <div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
-            <span className=" text-3xl  font-extrabold text-yellow-400">
-              Inner
-            </span>
-            <span className="text-blue-500 text-3xl font-extrabold">Self</span>
+            <span className="text-yellow-600 text-3xl font-bold">Epiq</span>
+            <span className="text-yellow-300 text-3xl font-bold">Dine</span>
           </Link>
         </div>
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>

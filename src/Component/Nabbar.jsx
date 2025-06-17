@@ -6,12 +6,12 @@ import { AuthContext } from "./Context/AuthContext";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { ThemeContext } from "./Context/ThemeContext";
-
+import logo from "../assets/Logo.png"
 const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const { changeTheme, theme } = use(ThemeContext);
 
-  // console.log(changeTheme);
+
 
   // Handle Sign Out with confirmation
   const handleSignOut = () => {
@@ -129,7 +129,7 @@ const Nabbar = () => {
 
         <Link to={"/"} className="flex items-center gap-2 ml-2">
           <div className="w-10 h-10 object-center hidden md:block">
-            <img src="/public/logo.png" className="rounded-full" alt="logo" />
+            <img src={logo} className="rounded-full" alt="logo" />
           </div>
           <span className="md:text-3xl font-bold">
             <span className="text-yellow-600">Epiq</span>
@@ -149,7 +149,7 @@ const Nabbar = () => {
               changeTheme();
             }}
           >
-            {theme === "dark" ? <IoSunny  size={20}/> : <IoMoon  />}
+            {theme === "dark" ? <IoSunny size={20} /> : <IoMoon />}
           </button>
         </div>
 

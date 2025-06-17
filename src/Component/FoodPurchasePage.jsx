@@ -1,14 +1,35 @@
-import React, { use } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "./Context/AuthContext";
 import axios from "axios";
 
 const FoodPurchasePage = () => {
+  const [foodDetails, setFoodDetails] = useState({});
   const { user } = use(AuthContext);
+  const token = user?.accessToken;
   const email = user?.email;
   const name = user?.displayName;
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`https://assaignment-11-server-iota.vercel.app/getfood/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setFoodDetails(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Something went wrong while fetching food details.");
+      });
+  }, [token, id]);
+
+  // console.log(foodDetails);
   const {
     _id,
     newFoodName,
@@ -19,56 +40,58 @@ const FoodPurchasePage = () => {
     foodPrice,
     foodImageLink,
     purchaseFoodCount,
-  } = useLoaderData();
-  console.log(Date.now());
-  // console.log(purchaseFoodCount);
+  } = foodDetails;
+
+  // foodQuantity;
+
   const handlePurchaseFood = (e) => {
+    e.preventDefault();
+
     const form = e.target;
-    // purchase food data
-    // const purchaseFoodImage = foodImageLink;
-    // const purchaseFoodName = form.foodname.value;
-    // const purchaseFoodCategory = form.foodcategory.value;
-    // const purchaseFoodOrigin = form.countryname.value;
-    // const purchaseFoodPrice = form.foodprice.value;
-    // const purchaseUserName = form.username.value;
-    // const purchaseUserEmail = form.useremail.value;
-    const purchaseFoodQuantity = form.foodquantity.value;
-    const totalCost = purchaseFoodQuantity * foodPrice;
-    console.log(totalCost);
-    if (purchaseFoodQuantity <= 0) {
+    const quantity = parseInt(form.foodquantity.value);
+    const totalCost = quantity * foodPrice;
+
+    if (quantity <= 0) {
       return toast.error("Please enter a valid quantity greater than 0");
     }
 
-    const newvalue = parseInt(purchaseFoodQuantity) + purchaseFoodCount;
-    console.log(newvalue);
-    // purchase food data full object
+    if (quantity > foodQuantity) {
+      return toast.error("You can not purchase more than available quantity");
+    }
+
+    const newvalue = quantity + purchaseFoodCount;
+    const availableQuantity = foodQuantity - quantity;
+
     const purchaseFoodDetails = {
       buyingDate: Date.now(),
       newFoodName,
       foodCategory,
       foodDescription,
       foodOrigin,
-      foodQuantity,
+      foodQuantity: availableQuantity,
       foodPrice,
       foodImageLink,
       purchaseFoodCount: newvalue,
-      purchaseFoodQuantity,
+      purchaseFoodQuantity: quantity,
       totalCost,
       email,
       name,
     };
 
     axios
-      .post("http://localhost:3000/purchasefood", purchaseFoodDetails)
+      .post(
+        "https://assaignment-11-server-iota.vercel.app/purchasefood",
+        purchaseFoodDetails
+      )
       .then((res) => {
-        console.log(res);
         if (res?.data?.insertedId) {
           toast.success("Food Purchased Successfully");
+          navigate(`/myorder/${email}`);
         }
-        navigate(`/myorder/${email}`);
       })
       .catch((error) => {
-        return toast.error("Failed to purchase food. Please try again.");
+        console.error(error);
+        toast.error("Failed to purchase food. Please try again.");
       });
   };
 
@@ -120,7 +143,21 @@ const FoodPurchasePage = () => {
           </div>
           <div className={inputClass}>
             <label className="mb-2 font-semibold text-white">
-              Food Quantity
+              Available Food Quantity
+            </label>
+            <input
+              type="number"
+              className={`${inputBoxClass} cursor-not-allowed`}
+              placeholder="Enter Quantity Of Food"
+              value={foodQuantity}
+              required
+              readOnly
+            />
+          </div>
+
+          <div className={inputClass}>
+            <label className="mb-2 font-semibold text-white">
+              Want To Purchase Food Quantity
             </label>
             <input
               type="number"
@@ -153,6 +190,7 @@ const FoodPurchasePage = () => {
             name="foodprice"
             value={foodPrice}
             required
+            readOnly
           />
         </div>
 
@@ -180,12 +218,18 @@ const FoodPurchasePage = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-        >
-          Purchase Now
-        </button>
+        <div className="text-center">
+          {foodQuantity == 0 ? (
+            <p className=""> Item is not available.</p>
+          ) : (
+            <button
+              type="submit"
+              className="w-full py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+            >
+              Purchase Now
+            </button>
+          )}
+        </div>
       </form>
       <ToastContainer />
     </div>

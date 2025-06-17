@@ -22,7 +22,7 @@ const AddFood = () => {
     const userEmail = form.useremail.value;
     const foodPrice = form.foodprice.value;
     const purchaseFoodCount = 0;
-    
+
     if (foodQuantity <= 0) {
       return toast.error("Please Enter A valid Food Amount");
     }
@@ -44,7 +44,10 @@ const AddFood = () => {
       purchaseFoodCount,
     };
     axios
-      .post("http://localhost:3000/addfood", addFoodDataToDatabase)
+      .post(
+        "https://assaignment-11-server-iota.vercel.app/addfood",
+        addFoodDataToDatabase
+      )
       .then((res) => {
         toast.success("Food Item Added Successfully");
         navigate(`${location.state ? location.state : "/"}`);

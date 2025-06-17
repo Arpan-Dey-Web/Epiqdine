@@ -1,9 +1,9 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import {  useParams } from "react-router";
 import SingleOrderData from "./SingleOrderData";
 import axios from "axios";
 import { AuthContext } from "./Context/AuthContext";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const MyOrder = () => {
   const { email } = useParams();
@@ -13,21 +13,24 @@ const MyOrder = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/purchasefood/${email}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `https://assaignment-11-server-iota.vercel.app/purchasefood/${email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         setOrders(res.data);
       })
       .catch((error) => {
         toast.error("Somthing Wrong");
       });
-  }, []);
-  console.log(orders);
+  }, [token, email]);
+
   const handleDeleteOrder = (id) => {
-    const url = `http://localhost:3000/deleteOrder/${id}`;
+    const url = `https://assaignment-11-server-iota.vercel.app/deleteOrder/${id}`;
     axios
       .delete(url)
       .then((response) => {
@@ -35,7 +38,8 @@ const MyOrder = () => {
         setOrders(remainningOrders);
       })
       .catch((error) => {
-        console.log("Error deleting item:", error);
+        // console.log("Error deleting item:", error);
+        toast.error("Error deleting item");
       });
   };
 
@@ -52,7 +56,9 @@ const MyOrder = () => {
             handleDeleteOrder={handleDeleteOrder}
           ></SingleOrderData>
         ))}
+
       </div>
+      <ToastContainer/>
     </div>
   );
 };

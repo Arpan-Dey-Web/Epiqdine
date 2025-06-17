@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { AuthContext } from "./Context/AuthContext";
+import axios from "axios";
 
 const UpdateFood = () => {
   const { id } = useParams();
@@ -22,13 +23,24 @@ const UpdateFood = () => {
     foodPrice,
     _id,
   } = foodData;
-  //   purchaseFoodCount,
-  // loading data
+
+  // useEffect(() => {
+
   useEffect(() => {
-    fetch(`http://localhost:3000/getfood/${id}`)
-      .then((res) => res.json())
-      .then((data) => setFoodData(data));
-  }, [id]);
+    axios
+      .get(`https://assaignment-11-server-iota.vercel.app/getfood/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setFoodData(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Something went wrong while fetching food details.");
+      });
+  }, [token]);
 
   const navigate = useNavigate();
 
@@ -81,14 +93,17 @@ const UpdateFood = () => {
           return toast.error("Enter A valid Food Price");
         }
 
-        fetch(`http://localhost:3000/update/myfood/${_id}`, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(updatedFoodDetails),
-        })
+        fetch(
+          `https://assaignment-11-server-iota.vercel.app/update/myfood/${_id}`,
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(updatedFoodDetails),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

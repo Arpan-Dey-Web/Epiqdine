@@ -1,25 +1,30 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
 const FoodDetails = () => {
+  const navigate = useNavigate();
   const {
     _id,
-    newFoodName,
     foodCategory,
     foodDescription,
     foodOrigin,
     foodQuantity,
     foodPrice,
     foodImageLink,
+    userName,
+    userEmail,
+    newFoodName,
+    purchaseFoodCount,
   } = useLoaderData();
 
   const handlePurchaseFoodButton = () => {
     toast("going to purchase food page");
+    navigate(`/purchasefood/${_id}`);
   };
   return (
     <div className="min-h-screen   text-slate-100 font-sans p-8 ">
-      <div className="max-w-3xl mx-auto  border border-gray-600	bg-slate-800/60 backdrop-blur-lg rounded-2xl	 shadow-xl p-6 space-y-6">
+      <div className="max-w-2xl mx-auto  border border-gray-600	bg-slate-800/60 backdrop-blur-lg rounded-2xl	 shadow-xl p-6 space-y-6">
         <img
           src={foodImageLink}
           alt={newFoodName}
@@ -36,48 +41,41 @@ const FoodDetails = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm leading-relaxed">
-          <div>
-            <span className="block text-indigo-400 font-semibold">
-              Food Origin
-            </span>
-            {foodOrigin}
-            <div>
-              <span className="block text-indigo-400 font-semibold">
-                Category
-              </span>
-              {foodCategory}
-            </div>
-            <div>
-              <span className="block text-indigo-400 font-semibold">
-                Food Count:
-              </span>
-              {"0"}
-            </div>
-            <div>
-              <span className="block text-indigo-400 font-semibold">
-                Food Quantity:
-              </span>
-              {foodQuantity}
+        <div className="text-sm">
+          <div className="">
+            <div className="flex py-2 gap-3">
+              <span className=" text-orange-400  font-bold">Food Origin: </span>
+              <span className="text-white">{foodOrigin}</span>
             </div>
 
-            <div>
-              <span className="block text-indigo-400 font-semibold">
-                Food Price:
-              </span>
-              {foodPrice}
+            <div className="flex py-2 gap-3">
+              <span className=" text-orange-400 font-bold">Category: </span>
+              <span>{foodCategory}</span>
+            </div>
+
+            <div className="flex py-2 gap-3">
+              <span className=" text-orange-400 font-bold">Food Owner:</span>
+              <span>{userName}</span>
+            </div>
+
+            <div className="flex py-2 gap-3">
+              <span className=" text-orange-400 font-bold">Food Quantity:</span>
+              <span> {foodQuantity}</span>
+            </div>
+
+            <div className="flex py-2 gap-3">
+              <span className=" text-orange-400 font-bold">Food Price:</span>
+              <span> {foodPrice}</span>
             </div>
           </div>
         </div>
         <div className="pt-4 text-center">
-          <Link to={`/purchasefood/${_id}`}>
-            <button
-              onClick={() => handlePurchaseFoodButton()}
-              className="inline-block rounded-full border border-indigo-600 px-6 py-2 md:px-12 md:py-3  font-medium text-white hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden  md:text-lg "
-            >
-              Purchase Food Now
-            </button>
-          </Link>
+          <button
+            onClick={() => handlePurchaseFoodButton()}
+            className=" rounded-full btn  btn-primary btn-outline    font-medium  text-white  "
+          >
+            Purchase Food Now
+          </button>
         </div>
       </div>
       <ToastContainer />

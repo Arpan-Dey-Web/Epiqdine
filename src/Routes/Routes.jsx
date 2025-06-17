@@ -46,7 +46,9 @@ export const router = createBrowserRouter([
       {
         path: "Single_Food_Page/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/getfood/${params.id}`),
+          fetch(
+            `https://assaignment-11-server-iota.vercel.app/getfood/${params.id}`
+          ),
         element: <FoodDetails></FoodDetails>,
       },
       {
@@ -66,13 +68,6 @@ export const router = createBrowserRouter([
         ),
       },
 
-      // {
-      //   path: "/addfood/:email",
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:3000/addfood/${params.email}`),
-      //   element: <div>hello world</div>,
-      // },
-      
       //  update food before
 
       {
@@ -95,8 +90,6 @@ export const router = createBrowserRouter([
       // purchasefood with id
       {
         path: "/purchasefood/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/getfood/${params.id}`),
         element: (
           <PrivateRoute>
             <FoodPurchasePage></FoodPurchasePage>,

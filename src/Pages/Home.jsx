@@ -10,6 +10,17 @@ import Food from "../Component/Food";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Component/Loading";
 import { ThemeContext } from "../Component/Context/ThemeContext";
+import like1 from "../assets/like1.jpg";
+import like2 from "../assets/like2.jpg";
+import like3 from "../assets/like3.jpg";
+import like4 from "../assets/like4.jpg";
+import like5 from "../assets/like5.jpg";
+
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
+import image4 from "../assets/image4.jpg";
+import image5 from "../assets/image5.jpg";
 const Home = () => {
   // toggle design with theme change
   const controller = useContext(ThemeContext);
@@ -20,7 +31,9 @@ const Home = () => {
   const { isPending, isError, data } = useQuery({
     queryKey: ["allfoodData"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:3000/addfood");
+      const res = await fetch(
+        "https://assaignment-11-server-iota.vercel.app/addfood"
+      );
       return res.json();
     },
   });
@@ -59,11 +72,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img
-                  className={sliderImageClass}
-                  src="/public/image1.jpg"
-                  alt=""
-                />
+                <img className={sliderImageClass} src={image1} alt="" />
               </div>
 
               <div
@@ -92,11 +101,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img
-                  className={sliderImageClass}
-                  src="/public/image2.jpg"
-                  alt=""
-                />
+                <img className={sliderImageClass} src={image2} alt="" />
               </div>
               <div
                 className={
@@ -123,11 +128,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img
-                  className={sliderImageClass}
-                  src="/public/image3.jpg"
-                  alt=""
-                />
+                <img className={sliderImageClass} ssrc={image3} alt="" />
               </div>
               <div
                 className={
@@ -154,11 +155,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img
-                  className={sliderImageClass}
-                  src="/public/image4.jpg"
-                  alt=""
-                />
+                <img className={sliderImageClass} src={image4} alt="" />
               </div>
               <div
                 className={
@@ -185,11 +182,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img
-                  className={sliderImageClass}
-                  src="/public/image5.jpg"
-                  alt=""
-                />
+                <img className={sliderImageClass} src={image5} alt="" />
               </div>
               <div
                 className={
@@ -353,7 +346,7 @@ const Home = () => {
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
                     <img
-                      src="/public/like1.jpg"
+                      src={like1}
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -387,7 +380,7 @@ const Home = () => {
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
                     <img
-                      src="/public/like2.jpg"
+                      src={like2}
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -417,7 +410,7 @@ const Home = () => {
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
                     <img
-                      src="/public/like3.jpg"
+                      src={like3}
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -448,7 +441,7 @@ const Home = () => {
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
                     <img
-                      src="/public/like4.jpg"
+                      src={like4}
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -482,7 +475,7 @@ const Home = () => {
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
                     <img
-                      src="/public/like5.jpg"
+                      src={like5}
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />

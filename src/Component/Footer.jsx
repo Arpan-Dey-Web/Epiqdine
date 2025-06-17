@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { FaFacebook, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { Link } from "react-router";
 import { ThemeContext } from "./Context/ThemeContext";
-
+import logo from "../assets/Logo.png";
 const Footer = () => {
   const { theme } = use(ThemeContext);
 
@@ -13,7 +13,7 @@ const Footer = () => {
       }`}
     >
       <aside>
-        <img className="rounded-2xl w-18" src="/public/logo.png" alt="" />
+        <img className="rounded-2xl w-18" src={logo} alt="logo" />
         <div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
             <span className="text-yellow-600 text-3xl font-bold">Epiq</span>

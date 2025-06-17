@@ -99,6 +99,16 @@ const LightBoxImages = () => {
         ))}
       </div>
 
+      {/* Intersection Observer Target */}
+      <div
+        ref={ref}
+        className="h-12 flex items-center justify-center mt-8 text-gray-500"
+      >
+        {visibleImages.length < allImages.length
+          ? "Loading more..."
+          : " "}
+      </div>
+
       <Lightbox
         open={openIndex >= 0}
         close={() => setOpenIndex(-1)}

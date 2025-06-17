@@ -19,11 +19,14 @@ const Myfood = () => {
   // Fetching data using axios and useEffect hook
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/addfood/all-food/${email}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `https://assaignment-11-server-iota.vercel.app/addfood/all-food/${email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         setMyFoods(res.data);
       })

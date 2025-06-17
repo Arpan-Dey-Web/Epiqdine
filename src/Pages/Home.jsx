@@ -15,7 +15,6 @@ import like2 from "../assets/like2.jpg";
 import like3 from "../assets/like3.jpg";
 import like4 from "../assets/like4.jpg";
 import like5 from "../assets/like5.jpg";
-
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
 import image3 from "../assets/image3.jpg";

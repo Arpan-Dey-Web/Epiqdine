@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-
 import Table from "./Table"; 
 import Loading from "./Loading"; 
 import Error from "./Error"; 
 import NofoodAvailable from "./NofoodAvailable"; 
-import logo from "../assets/logo.png"; 
+import logo from "../assets/Logo.png"; 
 import { Link } from "react-router";
 
 const AllFoods = () => {

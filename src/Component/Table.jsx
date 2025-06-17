@@ -20,23 +20,27 @@ const Table = ({ table }) => {
         alt={newFoodName}
         className="object-cover object-center w-full rounded-md h-72"
       />
-      <div className="mt-6 mb-2 w-full mx-auto text-orange-400">
-        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-300">
+      <div className="mt-6 mb-2 w-full mx-auto ">
+        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-500 text-orange-400">
           {newFoodName}
         </span>
 
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="font-semibold text-gray-400 tracking-wide">
-              Date: {new Date().toLocaleDateString()}
+            <h2 className="font-semibold  ">
+              <span>
+                <span>Food Price: </span>
+                {foodPrice}
+              </span>
             </h2>
-            <p className="text-gray-400 text-md mt-1 capitalize">
-              foodOrigin: {foodOrigin}
-            </p>
+            <p className=" text-md mt-1 capitalize">foodOrigin: {foodOrigin}</p>
             <p>Quantity: {foodQuantity}</p>
-          </div>
-          <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm">
-            {foodCategory}
+            <p className="flex ">
+              <span>Food Category: </span>
+              <p className="px-3 py-1 rounded-full text-blue-800 font-semibold text-sm">
+                {foodCategory}
+              </p>
+            </p>
           </div>
         </div>
       </div>

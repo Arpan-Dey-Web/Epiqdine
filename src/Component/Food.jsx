@@ -1,7 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { ThemeContext } from "./Context/ThemeContext";
+
 const Food = ({ food }) => {
+  const { theme } = use(ThemeContext);
+
   const {
     _id,
     newFoodName,
@@ -22,22 +26,25 @@ const Food = ({ food }) => {
         alt={newFoodName}
         className="object-cover object-center w-full rounded-md h-72"
       />
-      <div className="mt-6 mb-2 w-full mx-auto text-orange-400">
-        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-300">
+      <div className="mt-6 mb-2 w-full mx-auto ">
+        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-300 text-orange-400">
           {newFoodName}
         </span>
 
-        <div className="flex justify-between items-center">
+        <div className=" ">
           <div>
-            <h2 className="font-semibold text-gray-400 tracking-wide">
-              Date: {new Date().toLocaleDateString()}
+            <h2 className="font-semibold ">
+              Food Price: <span>{foodPrice}</span>
             </h2>
-            <p className="text-gray-400 text-md mt-1 capitalize">
+            <p className=" text-md mt-1 capitalize">
               foodOrigin: {foodOrigin}
             </p>
-          </div>
-          <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm">
-            {foodCategory}
+            <span className="flex gap-1">
+              <span>Food Category:</span>
+              <p className="px-3 py-1 rounded-full  text-blue-800 font-semibold text-sm">
+                {foodCategory}
+              </p>
+            </span>
           </div>
         </div>
       </div>

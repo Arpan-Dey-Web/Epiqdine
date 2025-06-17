@@ -16,8 +16,6 @@ const logInWithGoogle = () => {
   return signInWithPopup(auth, googleProvider);
 };
 const AuthProvider = ({ children }) => {
- 
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -38,11 +36,12 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    // console.log(user);
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return () => {
+    return () => { 
       unsubscribe();
     };
   }, []);
@@ -57,7 +56,6 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     setLoading,
-    
   };
   return <AuthContext value={context}>{children}</AuthContext>;
 };

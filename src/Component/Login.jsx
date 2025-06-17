@@ -33,7 +33,6 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     signInuser(email, password)
       .then((result) => {
         Swal.fire({

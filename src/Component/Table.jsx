@@ -1,64 +1,55 @@
 import React from "react";
-import { FaTableList } from "react-icons/fa6";
 import { Link } from "react-router";
-// {
-//     "_id": "682d0007156f34bbf4c889e1",
-//     "groupName": "python programming",
-//     "groupdescription": "python proramming",
-//     "meetingLocation": "dhaka",
-//     "groupCategory": "Running",
-//     "maxMembers": "25",
-//     "imageURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/AwUCP/9k=",
-//     "name": "Arpan",
-//     "startDate": "21-5-25",
-//     "email": "korim@gmail.com"
-// }
-const Table = ({ table, index }) => {
+
+const Table = ({ table }) => {
   const {
     _id,
-    groupName,
-    meetingLocation,
-    groupCategory,
-    maxMembers,
-    imageURL,
-    name,
-    lastDate,
+    newFoodName,
+    foodCategory,
+    foodDescription,
+    foodOrigin,
+    foodQuantity,
+    foodPrice,
+    foodImageLink,
   } = table;
-  const date = lastDate.split("T");
+
   return (
-    <tr className="bg-slate-700 text-gray-400 border-b-2">
-      <td>{index + 1}.</td>
-      <td>
-        <div className="flex items-center gap-3">
-          <div className="avatar">
-            <div className="mask mask-squircle h-12 w-12">
-              <img src={imageURL} alt="Avatar Tailwind CSS Component" />
-            </div>
-          </div>
+    <div className="max-w-md p-6 rounded-md border border-gray-300 shadow-md ">
+      <img
+        src={foodImageLink}
+        alt={newFoodName}
+        className="object-cover object-center w-full rounded-md h-72"
+      />
+      <div className="mt-6 mb-2 w-full mx-auto text-orange-400">
+        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-300">
+          {newFoodName}
+        </span>
+
+        <div className="flex justify-between items-center">
           <div>
-            <div className="font-bold text-white capitalize">{groupName}</div>
+            <h2 className="font-semibold text-gray-400 tracking-wide">
+              Date: {new Date().toLocaleDateString()}
+            </h2>
+            <p className="text-gray-400 text-md mt-1 capitalize">
+              foodOrigin: {foodOrigin}
+            </p>
+            <p>Quantity: {foodQuantity}</p>
+          </div>
+          <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm">
+            {foodCategory}
           </div>
         </div>
-      </td>
-      <td>
-        <div className="capitalize">{meetingLocation}</div>
-      </td>
-      <td>
-        <span className="badge bg-slate-500 border-none text-gray-200 w-36">
-          {groupCategory}
-        </span>
-      </td>
-      <td>{date[0]}</td>
-      <td>{maxMembers}</td>
-      <td>
+      </div>
+
+      <div className="text-center pt-4">
         <Link
-          to={`/group/${_id}`}
-          className="btn text-white btn-outline btn-info"
+          to={`/Single_Food_Page/${_id}`}
+          className="inline-block px-6 py-2 border border-blue-600 text-blue-600 font-semibold rounded hover:bg-blue-600 hover:text-white transition-colors duration-300"
         >
-          View
+          Food Details
         </Link>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 };
 

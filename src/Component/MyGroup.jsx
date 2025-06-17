@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import MygroupTable from "./MygroupTable";
-import Group from "./Group";
+import Group from "./Food";
 import Swal from "sweetalert2";
 
 const MyGroup = () => {
@@ -77,4 +77,4 @@ const MyGroup = () => {
 };
 
 export default MyGroup;
-<h1>this is mygroups</h1>;
+

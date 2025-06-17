@@ -1,16 +1,19 @@
 import { createBrowserRouter } from "react-router";
 import Home from "../Pages/Home";
-import Allgroups from "../Component/Allgroups";
-import CreateGroup from "../Component/CreateGroup";
-import MyGroup from "../Component/MyGroup";
 import Register from "../Component/Register";
 import Login from "../Component/Login";
-import GroupDetails from "../Component/GroupDetails";
-import UpdateGroup from "../Component/UpdateGroup";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../Component/Loading";
 import Error from "../Component/Error";
 import MainLayOut from "../Pages/MainLayOut";
+import Gallery from "../Component/Gallery";
+import AddFood from "../Component/AddFood";
+import AllFoods from "../Component/AllFoods";
+import FoodDetails from "../Component/FoodDetails";
+import FoodPurchasePage from "../Component/FoodPurchasePage";
+import Myfood from "../Component/Myfood";
+import UpdateFood from "../Component/UpdateFood";
+import MyOrder from "../Component/MyOrder";
 
 export const router = createBrowserRouter([
   {
@@ -21,43 +24,9 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () =>
-          fetch("https://assaignment-10-server-side.vercel.app/creategroups"),
         element: <Home />,
       },
-      {
-        path: "/allGroups",
-        loader: () =>
-          fetch(
-            "https://assaignment-10-server-side.vercel.app/creategroups/all-data"
-          ),
-        element: (
-          <PrivateRoute>
-            <Allgroups />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "createGroup",
-        element: (
-          <PrivateRoute>
-            <CreateGroup></CreateGroup>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "myGroups/:email",
-        loader: ({ params }) =>
-          fetch(
-            `https://assaignment-10-server-side.vercel.app/my-groups/${params.email}`
-          ),
-        element: (
-          <PrivateRoute>
-            <MyGroup></MyGroup>
-          </PrivateRoute>
-        ),
-      },
-
+      // register and login routes
       {
         path: "register",
         element: <Register />,
@@ -67,29 +36,74 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/group/:id",
+        path: "/allFoods",
+        element: <AllFoods />,
+      },
+      {
+        path: "/gallery",
+        Component: Gallery,
+      },
+      {
+        path: "Single_Food_Page/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
-          ),
+          fetch(`http://localhost:3000/getfood/${params.id}`),
+        element: <FoodDetails></FoodDetails>,
+      },
+      {
+        path: "/addfood",
         element: (
           <PrivateRoute>
-            <GroupDetails></GroupDetails>
+            <AddFood></AddFood>
           </PrivateRoute>
         ),
       },
       {
-        path: "/updateGroup/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://assaignment-10-server-side.vercel.app/creategroups/${params.id}`
-          ),
+        path: "/myorder/:email",
         element: (
           <PrivateRoute>
-            <UpdateGroup> </UpdateGroup>
+            <MyOrder></MyOrder>
           </PrivateRoute>
         ),
       },
+
+      // {
+      //   path: "/addfood/:email",
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:3000/addfood/${params.email}`),
+      //   element: <div>hello world</div>,
+      // },
+      
+      //  update food before
+
+      {
+        path: "/updatefood/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateFood></UpdateFood>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myfood/:email",
+        element: (
+          <PrivateRoute>
+            <Myfood></Myfood>
+          </PrivateRoute>
+        ),
+      },
+
+      // purchasefood with id
+      {
+        path: "/purchasefood/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/getfood/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <FoodPurchasePage></FoodPurchasePage>,
+          </PrivateRoute>
+        ),
+      },
+
       {
         path: "*",
         element: <Error />,

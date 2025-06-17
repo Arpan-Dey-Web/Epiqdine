@@ -11,13 +11,12 @@
 @plugin "daisyui";
 
 html {
-  font-family: "Poppins", sans-serif;
-
+  font-family: "Fira Code", "monospace";
+  scroll-behavior: smooth;
 }
 
-.nabbar{
-  background-color: #1E293B;
-
+.nabbar {
+  background-color: #1e293b;
 }
 .logoName {
   font-family: "Fira Code", monospace;
@@ -89,10 +88,6 @@ html {
   }
 }
 
-.active {
-  color: #3B82F6;
-  border-bottom: 2px solid rgb(223, 133, 16);
-}
 
 
 

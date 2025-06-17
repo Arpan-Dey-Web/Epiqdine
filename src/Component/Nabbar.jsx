@@ -7,10 +7,13 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { ThemeContext } from "./Context/ThemeContext";
 
-const Nabbar = ({ themeData, setThemeData }) => {
+const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
-  const { changeTheme } = use(ThemeContext);
+  const { changeTheme, theme } = use(ThemeContext);
 
+  // console.log(changeTheme);
+
+  // Handle Sign Out with confirmation
   const handleSignOut = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -33,21 +36,63 @@ const Nabbar = ({ themeData, setThemeData }) => {
   };
 
   const links = (
-    <ul className="menu menu-vertical md:menu-horizontal gap-3 text-lg font-semibold">
-      <li>
-        <NavLink to={"/"}>Home</NavLink>
+    <ul className="menu menu-vertical md:menu-horizontal gap-4 text-lg font-semibold">
+      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-2xl transition-all duration-300  ${
+              isActive ? "bg-pink-600 text-white" : ""
+            }`
+          }
+        >
+          Home
+        </NavLink>
       </li>
-      <li>
-        <NavLink to={"/allFoods"}>All Foods</NavLink>
+      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
+        <NavLink
+          to="/allFoods"
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-2xl transition-all duration-300  ${
+              isActive ? "bg-pink-600 text-white" : ""
+            }`
+          }
+        >
+          All Foods
+        </NavLink>
       </li>
-      <li>
-        <NavLink to={"/gallery"}>Gallery</NavLink>
+      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
+        <NavLink
+          to="/gallery"
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-2xl transition-all duration-300  ${
+              isActive ? "bg-pink-600 text-white" : ""
+            }`
+          }
+        >
+          Gallery
+        </NavLink>
+      </li>
+    </ul>
+  );
+
+  const profileDropDownLinks = (
+    <ul>
+      <li className="p-1 ">
+        <NavLink to={`/myfood/${user?.email}`}>My Foods</NavLink>
+      </li>
+
+      <li className="p-1 ">
+        <NavLink to={`/myorder/${user?.email}`}>My Orders</NavLink>
+      </li>
+      <li className="p-1 ">
+        <NavLink to={"/addfood"}>Add Food</NavLink>
       </li>
     </ul>
   );
 
   return (
-    <div className="navbar bg-base-100 text-base-content shadow-md rounded-2xl my-4 px-4">
+    <div className="navbar bg-base-100 text-base-content shadow-md rounded-2xl my-4  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,47 +115,48 @@ const Nabbar = ({ themeData, setThemeData }) => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
           >
-            {links}
+            {profileDropDownLinks}
+            <li className="md:hidden  rounded-3xl ">
+              <button
+                className=" btn-ghost rounded-3xl  font-semibold  py-2  "
+                onClick={() => handleSignOut()}
+              >
+                Log Out
+              </button>
+            </li>
           </ul>
         </div>
 
         <Link to={"/"} className="flex items-center gap-2 ml-2">
           <div className="w-10 h-10 object-center hidden md:block">
-            <img
-              src="/public/logo.png"
-              className="rounded-full"
-              alt="logo"
-            />
+            <img src="/public/logo.png" className="rounded-full" alt="logo" />
           </div>
-          <span className="text-2xl md:text-3xl font-bold">
+          <span className="md:text-3xl font-bold">
             <span className="text-yellow-600">Epiq</span>
             <span className="text-yellow-300">Dine</span>
           </span>
         </Link>
       </div>
-
       <div className="navbar-center hidden lg:flex">{links}</div>
 
       <div className="navbar-end flex items-center gap-4">
         {/* Theme Toggle */}
-        <button
-          className="btn btn-circle border border-neutral"
-          onClick={() => {
-            changeTheme();
-            setThemeData(!themeData);
-          }}
-        >
-          {themeData ? <IoSunny /> : <IoMoon />}
-        </button>
+
+        <div>
+          <button
+            className=" btn btn-circle border border-neutral"
+            onClick={() => {
+              changeTheme();
+            }}
+          >
+            {theme === "dark" ? <IoSunny  size={20}/> : <IoMoon  />}
+          </button>
+        </div>
 
         {/* User Avatar */}
         {user ? (
-          <div>
-            <div
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content={user?.displayName || "No user"}
-              data-tooltip-place="top"
-            >
+          <div className="dropdown dropdown-start">
+            <div data-tooltip-id="my-tooltip" data-tooltip-place="top">
               <button className="p-1 border border-accent rounded-full">
                 {user?.photoURL ? (
                   <img
@@ -124,6 +170,10 @@ const Nabbar = ({ themeData, setThemeData }) => {
               </button>
             </div>
             <Tooltip id="my-tooltip" />
+
+            <ul className="menu dropdown-content bg-base-100 w-52 rounded-box z-1  p-2 shadow-sm">
+              {profileDropDownLinks}
+            </ul>
           </div>
         ) : (
           " "
@@ -131,12 +181,14 @@ const Nabbar = ({ themeData, setThemeData }) => {
 
         {/* Auth Buttons */}
         {user ? (
-          <button
-            onClick={handleSignOut}
-            className="btn btn-outline btn-primary rounded-full px-6 md:px-8"
-          >
-            LogOut
-          </button>
+          <div className="hidden md:block">
+            <button
+              onClick={() => handleSignOut()}
+              className="btn btn-outline btn-primary rounded-full px-6 md:px-8"
+            >
+              LogOut
+            </button>
+          </div>
         ) : (
           <div className="flex gap-3">
             <Link
@@ -145,7 +197,6 @@ const Nabbar = ({ themeData, setThemeData }) => {
             >
               LogIn
             </Link>
-           
           </div>
         )}
       </div>

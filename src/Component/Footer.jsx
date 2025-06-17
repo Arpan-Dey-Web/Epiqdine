@@ -1,23 +1,28 @@
-import React from "react";
+import React, { use } from "react";
 import { FaFacebook, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { Link } from "react-router";
+import { ThemeContext } from "./Context/ThemeContext";
 
 const Footer = () => {
+  const { theme } = use(ThemeContext);
+
   return (
-    <footer className="footer footer-horizontal footer-center rounded-2xl my-10 bg-[#314158] text-white py-10text-primary-content p-10">
+    <footer
+      className={`footer footer-horizontal footer-center rounded-2xl my-10 text-white  p-10 py-10 ${
+        theme === "dark" ? "bg-violet-300" : "bg-[#314158]"
+      }`}
+    >
       <aside>
-        <img
-          className="rounded-2xl w-18"
-          src="/public/logo.png"
-          alt=""
-        />
+        <img className="rounded-2xl w-18" src="/public/logo.png" alt="" />
         <div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
             <span className="text-yellow-600 text-3xl font-bold">Epiq</span>
             <span className="text-yellow-300 text-3xl font-bold">Dine</span>
           </Link>
         </div>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+        <p className={theme == "dark" ? "text-black" : " text-white"}>
+          Copyright © {new Date().getFullYear()} - All right reserved
+        </p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">

@@ -37,7 +37,7 @@ const Table = ({ table }) => {
             <p>Quantity: {foodQuantity}</p>
             <p className="flex ">
               <span>Food Category: </span>
-              <p className="px-3 py-1 rounded-full text-blue-800 font-semibold text-sm">
+              <p className="px-3 py-1 rounded-full text-blue-500 font-semibold text-sm">
                 {foodCategory}
               </p>
             </p>

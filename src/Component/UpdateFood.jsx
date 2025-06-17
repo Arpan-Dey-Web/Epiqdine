@@ -75,15 +75,7 @@ const UpdateFood = () => {
           userEmail,
           userName,
         };
-        // console.log(
-        //   foodCategory,
-        //   foodDescription,
-        //   foodImageLink,
-        //   foodOrigin,
-        //   foodQuantity,
-        //   newFoodName,
-        //   foodPrice
-        // );
+        
 
         if (foodQuantity <= 0) {
           return toast.error("Please Enter A valid Food Amount");
@@ -260,17 +252,20 @@ const UpdateFood = () => {
                 value={userEmail}
               />
             </div>
-
-            <button
-              type="submit"
-              className="w-full py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-            >
-              Update Item
-            </button>
+            <div className="text-center mt-5">
+              <button
+                type="submit"
+                className="w-2xs  py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+              >
+                Update Item
+              </button>
+            </div>
 
             <div className="text-center">
               <Link to={`/myfood/${userEmail}`}>
-                <button className="btn ">Back To Myfood Page</button>
+                <button className="btn btn-outline btn-secondary  rounded-full">
+                  Back To Myfood Page
+                </button>
               </Link>
             </div>
           </form>

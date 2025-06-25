@@ -6,6 +6,7 @@ import axios from "axios";
 
 const FoodPurchasePage = () => {
   const [foodDetails, setFoodDetails] = useState({});
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { user } = use(AuthContext);
   const token = user?.accessToken;
   const email = user?.email;
@@ -21,10 +22,11 @@ const FoodPurchasePage = () => {
         },
       })
       .then((res) => {
+        console.log(res.data);
         setFoodDetails(res.data);
       })
       .catch((error) => {
-        console.error(error);
+        // console.log(error);
         toast.error("Something went wrong while fetching food details.");
       });
   }, [token, id]);
@@ -41,27 +43,25 @@ const FoodPurchasePage = () => {
     foodImageLink,
     purchaseFoodCount,
   } = foodDetails;
-
-  // foodQuantity;
+  console.log(foodQuantity);
+  // console.log(purchaseFoodCount);
 
   const handlePurchaseFood = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const quantity = parseInt(form.foodquantity.value);
+    const newQuantity = foodQuantity - quantity;
+    console.log(newQuantity);
     const totalCost = quantity * foodPrice;
-
     if (quantity <= 0) {
       return toast.error("Please enter a valid quantity greater than 0");
     }
-
     if (quantity > foodQuantity) {
       return toast.error("You can not purchase more than available quantity");
     }
-
     const newvalue = quantity + purchaseFoodCount;
+    // console.log(newvalue);
     const availableQuantity = foodQuantity - quantity;
-
     const purchaseFoodDetails = {
       buyingDate: Date.now(),
       newFoodName,
@@ -76,7 +76,20 @@ const FoodPurchasePage = () => {
       totalCost,
       email,
       name,
-    };
+    };"/update/purchasecount/:id";
+
+    // update purchasefood Count
+    fetch(`${backendUrl}/update/purchasecount/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "Application/json",
+      },
+      body: JSON.stringify({ newvalue }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
 
     axios
       .post(

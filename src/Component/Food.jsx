@@ -7,7 +7,17 @@ const Food = ({ food }) => {
   const { theme } = use(ThemeContext);
 
   const {
+    // _id,
+    // newFoodName,
+    // foodCategory,
+    // foodDescription,
+    // foodOrigin,
+    // foodQuantity,
+    // foodPrice,
+    // foodImageLink,
+
     _id,
+    buyingDate,
     newFoodName,
     foodCategory,
     foodDescription,
@@ -15,6 +25,11 @@ const Food = ({ food }) => {
     foodQuantity,
     foodPrice,
     foodImageLink,
+    purchaseFoodCount,
+    purchaseFoodQuantity,
+    totalCost,
+    email,
+    name,
   } = food;
 
   return (
@@ -31,14 +46,13 @@ const Food = ({ food }) => {
           {newFoodName}
         </span>
 
-        <div className=" ">
+        <div>
+          <div>Purchase Food Count: {purchaseFoodCount}</div>
           <div>
             <h2 className="font-semibold ">
               Food Price: <span>{foodPrice}</span>
             </h2>
-            <p className=" text-md mt-1 capitalize">
-              foodOrigin: {foodOrigin}
-            </p>
+            <p className=" text-md mt-1 capitalize">foodOrigin: {foodOrigin}</p>
             <span className="flex gap-1">
               <span>Food Category:</span>
               <p className="px-3 py-1 rounded-full  text-blue-800 font-semibold text-sm">

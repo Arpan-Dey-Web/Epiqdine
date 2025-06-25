@@ -5,8 +5,16 @@ import logo from "../assets/Logo.png";
 const Gallery = () => {
   return (
     <div>
-      <div className="flex justify-center py-5 my-10 border-b-2 w-2xs mx-auto border-gray-500">
-        <span className="text-2xl md:text-3xl font-bold"> Gallery </span>
+      <div className=" flex items-center justify-center ">
+        <div
+          className="py-5 px-10 rounded-xl 
+        bg-gradient-to-r from-[#7F00FF] to-[#E100FF]
+        shadow-xl"
+        >
+          <span className="text-2xl md:text-4xl font-extrabold text-white tracking-wide">
+          Gallery
+          </span>
+        </div>
       </div>
 
       {/* lightbox images will place here*/}

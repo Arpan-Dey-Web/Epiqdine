@@ -127,7 +127,7 @@ const Home = () => {
           <SwiperSlide>
             <div className={sliderClass}>
               <div>
-                <img className={sliderImageClass} ssrc={image3} alt="" />
+                <img className={sliderImageClass} src={image3} alt="" />
               </div>
               <div
                 className={

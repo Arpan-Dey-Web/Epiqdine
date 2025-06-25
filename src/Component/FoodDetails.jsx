@@ -31,11 +31,11 @@ const FoodDetails = () => {
           className="w-full h-64 object-cover rounded-xl border border-indigo-600 shadow-md"
         />
 
-        <h1 className="text-3xl font-bold tracking-wide text-center  border-b border-gray-600 p-2 w-md mx-auto  capitalize">
+        <h1 className="text-3xl font-bold tracking-wide text-center  border-b border-gray-600 p-2  mx-auto  capitalize">
           {newFoodName}
         </h1>
 
-        <div className=" rounded-2xl  w-md mx-auto">
+        <div className=" rounded-2xl   mx-auto">
           <p className="text-base text-center opacity-90 capitalize text-gray-300">
             {foodDescription}
           </p>

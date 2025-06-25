@@ -6,12 +6,10 @@ import { AuthContext } from "./Context/AuthContext";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { ThemeContext } from "./Context/ThemeContext";
-import logo from "../assets/Logo.png"
+import logo from "../assets/Logo.png";
 const Nabbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const { changeTheme, theme } = use(ThemeContext);
-
-
 
   // Handle Sign Out with confirmation
   const handleSignOut = () => {
@@ -77,7 +75,7 @@ const Nabbar = () => {
   );
 
   const profileDropDownLinks = (
-    <ul>
+    <>
       <li className="p-1 ">
         <NavLink to={`/myfood/${user?.email}`}>My Foods</NavLink>
       </li>
@@ -88,7 +86,7 @@ const Nabbar = () => {
       <li className="p-1 ">
         <NavLink to={"/addfood"}>Add Food</NavLink>
       </li>
-    </ul>
+    </>
   );
 
   return (
@@ -171,7 +169,7 @@ const Nabbar = () => {
             </div>
             <Tooltip id="my-tooltip" />
 
-            <ul className="menu dropdown-content bg-base-100 w-52 rounded-box z-1  p-2 shadow-sm">
+            <ul className="  mr-10  menu dropdown-content bg-base-100 w-52 rounded-box z-1    p-2    shadow-sm">
               {profileDropDownLinks}
             </ul>
           </div>

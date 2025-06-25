@@ -33,12 +33,20 @@ const Myfood = () => {
       .catch((error) => {
         toast.error("Somthing Wrong");
       });
-  }, []);
+  }, [token, email]);
 
   return (
     <div>
-      <div className="text-center mt-5 mb-10  border-b-2 w-2xs mx-auto border-gray-500">
-        <h1 className="text-4xl  mx-auto">My Foods</h1>
+      <div className=" flex items-center justify-center mb-5">
+        <div
+          className="py-5 px-10 rounded-xl 
+        bg-gradient-to-r from-[#7F00FF] to-[#E100FF]
+        shadow-xl "
+        >
+          <span className="text-2xl md:text-4xl font-extrabold text-white tracking-wide">
+           My Food
+          </span>
+        </div>
       </div>
 
       <div className="overflow-x-auto">

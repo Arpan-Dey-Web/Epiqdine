@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      // register and login routes
+
       {
         path: "register",
         element: <Register />,
@@ -68,8 +68,6 @@ export const router = createBrowserRouter([
         ),
       },
 
-      //  update food before
-
       {
         path: "/updatefood/:id",
         element: (
@@ -87,7 +85,6 @@ export const router = createBrowserRouter([
         ),
       },
 
-      // purchasefood with id
       {
         path: "/purchasefood/:id",
         element: (

@@ -4,7 +4,7 @@ A full-featured MERN Stack Restaurant Management system built to streamline food
 
 ## 🚀 Live Site
 
-[👉 Click to Visit Live Site](https://b11-assaignment-resturent-project.netlify.app/)
+[👉 Click to Visit Live Site](epiqdine.netlify.app/)
 
 ---
 

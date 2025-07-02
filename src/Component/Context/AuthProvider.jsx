@@ -43,11 +43,15 @@ const AuthProvider = ({ children }) => {
         const useremail = { email: currentUser?.email};
         
         axios
-          .post("http://localhost:3000/jwt", useremail, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assaignment-11-server-iota.vercel.app/jwt",
+            useremail,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((err) => {
             console.log(err);

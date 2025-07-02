@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { ThemeContext } from "./Context/ThemeContext";
 
 const MyOrderedfood = ({ myfood, index }) => {
+  const {theme} = use(ThemeContext)
   const {
     _id,
     foodDescription,
@@ -39,7 +41,11 @@ const MyOrderedfood = ({ myfood, index }) => {
           <td>{foodPrice ? foodPrice : 0} </td>
           <th>
             <Link to={`/updatefood/${_id}`}>
-              <button className="btn btn-success btn-outline">
+              <button className={`flex items-center gap-2 border   font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white active:scale-95 transition-all mb-10 group ${
+              theme == "light"
+                ? "text-yellow-400 border-yellow-400 "
+                : "text-indigo-400 border-indigo-400"
+            }`}>
                 Update Food
               </button>
             </Link>

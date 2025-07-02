@@ -37,14 +37,10 @@ const Myfood = () => {
 
   return (
     <div>
-      <div className=" flex items-center justify-center mb-5">
-        <div
-          className="py-5 px-10 rounded-xl 
-        bg-gradient-to-r from-[#7F00FF] to-[#E100FF]
-        shadow-xl "
-        >
-          <span className="text-2xl md:text-4xl font-extrabold text-white tracking-wide">
-           My Food
+      <div className="flex items-center justify-center my-8">
+        <div className="py-5 px-10 rounded-xl shadow-xl border border-amber-500/30">
+          <span className="text-2xl md:text-4xl font-extrabold text-yellow-400 tracking-wide p-4 rounded-2xl">
+            My Food
           </span>
         </div>
       </div>

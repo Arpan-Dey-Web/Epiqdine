@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer
       className={`footer footer-horizontal footer-center rounded-2xl my-10 text-white  p-10 py-10 ${
-        theme === "dark" ? "bg-violet-300" : "bg-[#314158]"
+        theme === "dark" ? "bg-violet-300" : "bg-base-300"
       }`}
     >
       <aside>

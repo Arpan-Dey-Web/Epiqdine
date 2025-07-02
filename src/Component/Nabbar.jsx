@@ -33,47 +33,6 @@ const Nabbar = () => {
     });
   };
 
-  const links = (
-    <ul className="menu menu-vertical md:menu-horizontal gap-4 text-lg font-semibold">
-      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-2xl transition-all duration-300  ${
-              isActive ? "bg-pink-600 text-white" : ""
-            }`
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
-        <NavLink
-          to="/allFoods"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-2xl transition-all duration-300  ${
-              isActive ? "bg-pink-600 text-white" : ""
-            }`
-          }
-        >
-          All Foods
-        </NavLink>
-      </li>
-      <li className="btn-ghost rounded-3xl transition-all duration-300 ">
-        <NavLink
-          to="/gallery"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-2xl transition-all duration-300  ${
-              isActive ? "bg-pink-600 text-white" : ""
-            }`
-          }
-        >
-          Gallery
-        </NavLink>
-      </li>
-    </ul>
-  );
-
   const profileDropDownLinks = (
     <>
       <li className="p-1 ">
@@ -89,8 +48,70 @@ const Nabbar = () => {
     </>
   );
 
+  const links = (
+    <ul className="menu menu-vertical md:menu-horizontal gap-4 text-lg font-semibold">
+      <li className="btn-ghost  transition-all duration-300">
+        <NavLink
+          to="/"
+          className="px-4 py-2  transition-all duration-300"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li className="btn-ghost transition-all duration-300">
+        <NavLink
+          to="/allFoods"
+          className="px-4 py-2  transition-all duration-300"
+        >
+          All Foods
+        </NavLink>
+      </li>
+      <li className="btn-ghost transition-all duration-300">
+        <NavLink
+          to="/gallery"
+          className="px-4 py-2  transition-all duration-300"
+        >
+          Gallery
+        </NavLink>
+      </li>
+
+      {user && (
+        <>
+          <li className="btn-ghost  transition-all duration-300">
+            <NavLink
+              to={`/myfood/${user?.email}`}
+              className="px-4 py-2  transition-all duration-300"
+            >
+              My Foods
+            </NavLink>
+          </li>
+
+          <li className="btn-ghost  transition-all duration-300">
+            <NavLink
+              to={`/myorder/${user?.email}`}
+              className="px-4 py-2  transition-all duration-300"
+            >
+              My Orders
+            </NavLink>
+          </li>
+
+          <li className="btn-ghost  transition-all duration-300">
+            <NavLink
+              to="/addfood"
+              className="px-4 py-2  transition-all duration-300"
+            >
+              Add Food
+            </NavLink>
+          </li>
+        </>
+      )}
+    </ul>
+  );
+
   return (
-    <div className="navbar bg-base-100 text-base-content shadow-md rounded-2xl my-4  ">
+    <div
+      className={`navbar  shadow-md rounded-b-2xl mb-4 sticky top-0 z-10 bg-base-300`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -129,9 +150,9 @@ const Nabbar = () => {
           <div className="w-10 h-10 object-center hidden md:block">
             <img src={logo} className="rounded-full" alt="logo" />
           </div>
-          <span className="md:text-3xl font-bold">
-            <span className="text-yellow-600">Epiq</span>
-            <span className="text-yellow-300">Dine</span>
+          <span className="  md:text-3xl font-bold font-[Fira_Code] ">
+            <span className="text-yellow-400 font-[Fira_Code]">Epiq</span>
+            <span className="text-orange-400 font-[Fira_Code]">Dine</span>
           </span>
         </Link>
       </div>
@@ -139,18 +160,16 @@ const Nabbar = () => {
 
       <div className="navbar-end flex items-center gap-4">
         {/* Theme Toggle */}
-
         <div>
           <button
-            className=" btn btn-circle border border-neutral"
+            className={` btn border border-white rounded-full `}
             onClick={() => {
               changeTheme();
             }}
           >
-            {theme === "dark" ? <IoSunny size={20} /> : <IoMoon />}
+            {theme === "dark" ? <IoSunny /> : <IoMoon />}
           </button>
         </div>
-
         {/* User Avatar */}
         {user ? (
           <div className="dropdown dropdown-start">
@@ -168,10 +187,6 @@ const Nabbar = () => {
               </button>
             </div>
             <Tooltip id="my-tooltip" />
-
-            <ul className="  mr-10  menu dropdown-content bg-base-100 w-52 rounded-box z-1    p-2    shadow-sm">
-              {profileDropDownLinks}
-            </ul>
           </div>
         ) : (
           " "
@@ -182,7 +197,7 @@ const Nabbar = () => {
           <div className="hidden md:block">
             <button
               onClick={() => handleSignOut()}
-              className="btn btn-outline btn-primary rounded-full px-6 md:px-8"
+              className="btn btn-outline btn-primary rounded-full "
             >
               LogOut
             </button>

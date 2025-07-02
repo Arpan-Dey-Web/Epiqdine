@@ -15,6 +15,7 @@ const FoodPurchasePage = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    
     axios
       .get(`https://assaignment-11-server-iota.vercel.app/getfood/${id}`, {
         headers: {

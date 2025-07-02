@@ -1,56 +1,73 @@
-import React from "react";
+import React, { use } from "react";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router";
+import { ThemeContext } from "./Context/ThemeContext";
 
 const Table = ({ table }) => {
+  const { theme } = use(ThemeContext)
+  
   const {
     _id,
     newFoodName,
     foodCategory,
-    foodDescription,
+    // foodDescription,
     foodOrigin,
     foodQuantity,
     foodPrice,
     foodImageLink,
   } = table;
-
+  // console.log(_id);
   return (
-    <div className="max-w-md p-6 rounded-md border border-gray-300 shadow-md ">
+    <div className="max-w-md p-2 rounded-md border border-amber-500/30 shadow-md ">
       <img
         src={foodImageLink}
         alt={newFoodName}
         className="object-cover object-center w-full rounded-md h-72"
       />
       <div className="mt-6 mb-2 w-full mx-auto ">
-        <span className="block text-lg font-semibold tracking-widest uppercase text-center mb-6 border-b-2 border-gray-500 text-orange-400">
+        <span
+          className={`block text-sm font-semibold tracking-widest capitalize text-center mb-6 border-b-2 border-gray-500   ${
+            theme == "light" ? "text-yellow-400" : "text-indigo-400"
+          }  `}
+        >
           {newFoodName}
         </span>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center text-orange-400">
           <div>
             <h2 className="font-semibold  ">
-              <span>
-                <span>Food Price: </span>
-                {foodPrice}
-              </span>
+              <div className="flex items-center ">
+                <span className="">Price</span>
+
+                <div className="badge badge-soft badge-warning ">
+                  {foodPrice} <FaBangladeshiTakaSign />
+                </div>
+              </div>
             </h2>
-            <p className=" text-md mt-1 capitalize">foodOrigin: {foodOrigin}</p>
-            <p>Quantity: {foodQuantity}</p>
-            <p className="flex ">
-              <span>Food Category: </span>
-              <p className="px-3 py-1 rounded-full text-blue-500 font-semibold text-sm">
+
+            <p className="flex mt-3">
+              <span>Category: </span>
+              <span className="badge badge-soft badge-warning text-sm">
                 {foodCategory}
-              </p>
+              </span>
             </p>
           </div>
         </div>
       </div>
 
-      <div className="text-center pt-4">
-        <Link
-          to={`/Single_Food_Page/${_id}`}
-          className="inline-block px-6 py-2 border border-blue-600 text-blue-600 font-semibold rounded hover:bg-blue-600 hover:text-white transition-colors duration-300"
-        >
-          Food Details
+      <div className="flex justify-center mt-7">
+        <Link to={`/Single_Food_Page/${_id}`}>
+          <button
+            className={`flex items-center gap-2 border   font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white active:scale-95 transition-all mb-10 group ${
+              theme == "light"
+                ? "text-yellow-400 border-yellow-400 "
+                : "text-indigo-400 border-indigo-400"
+            }`}
+          >
+            Food Details
+            <FiArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+          </button>
         </Link>
       </div>
     </div>

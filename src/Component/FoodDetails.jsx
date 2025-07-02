@@ -17,6 +17,23 @@ const FoodDetails = () => {
     newFoodName,
     purchaseFoodCount,
   } = useLoaderData();
+  console.log(
+    _id,
+    foodCategory,
+    foodDescription,
+    foodOrigin,
+    foodQuantity,
+    foodPrice,
+    foodImageLink,
+    userName,
+    userEmail,
+    newFoodName,
+    purchaseFoodCount
+  );
+
+
+
+  
 
   const handlePurchaseFoodButton = () => {
     toast("going to purchase food page");

@@ -36,6 +36,9 @@ const Nabbar = () => {
   const profileDropDownLinks = (
     <>
       <li className="p-1 ">
+        <NavLink to={"/"}>My Foods</NavLink>
+      </li>
+      <li className="p-1 ">
         <NavLink to={`/myfood/${user?.email}`}>My Foods</NavLink>
       </li>
 

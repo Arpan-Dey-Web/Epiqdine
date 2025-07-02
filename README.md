@@ -4,14 +4,12 @@ A full-featured MERN Stack Restaurant Management system built to streamline food
 
 ## 🚀 Live Site
 
-[👉 Click to Visit Live Site](epiqdine.netlify.app/)
+[👉 Click to Visit Live Site](epiqdine.netlify.app)
 
 ---
 
 ## 📂 Repositories
 
-- **Client Repo:** [GitHub Client Repository](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-Arpan-collab)
-- **Server Repo:** [GitHub Server Repository](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Arpan-collab/tree/main)
 
 ---
 

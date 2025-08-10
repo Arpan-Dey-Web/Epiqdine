@@ -1,5 +1,6 @@
 import { FiArrowRight, FiClock, FiStar } from "react-icons/fi";
 import { FaFire } from "react-icons/fa";
+import { Link } from "react-router";
 
  export const PromotionalOffer = () => {
   return (
@@ -57,18 +58,20 @@ import { FaFire } from "react-icons/fa";
               <span className="text-gray-400 line-through mr-2">$24.99</span>
               <span className="text-2xl font-bold text-amber-400">$17.49</span>
             </div>
-            <button className="bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold py-2 px-6 rounded-full hover:from-amber-400 hover:to-amber-500 transition-all flex items-center gap-2">
-              Order Now{" "}
-              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </button>
+
+            {/* /allFoods */}
+            <Link to='/allFoods'>
+              <button className="details- flex items-center gap-2 details-button">
+                Order Now
+                <FiArrowRight className="group-hover:translate-x-1 transition-transform text-white" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Footer Timer */}
-      <div className="bg-black/30 px-6 py-5 text-center text-sm text-amber-300">
-       
-      </div>
+      <div className="bg-black/30 px-6 py-5 text-center text-sm text-amber-300"></div>
     </div>
   );
 };

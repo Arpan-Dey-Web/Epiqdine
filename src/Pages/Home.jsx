@@ -74,7 +74,6 @@ const Home = () => {
                 duration: 2, // total animation time
                 ease: "easeOut",
               }}
-              
             >
               <h1 className="text-left   ml-10 leading-snug ">
                 Bringing Comfort <br />
@@ -111,12 +110,6 @@ const Home = () => {
             ease: "easeOut",
           }}
           viewport={{ once: true }} // Runs only once when it comes into view
-          style={{
-            textAlign: "center",
-            marginTop: "100px",
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-          }}
         >
           <h1
             className={
@@ -157,13 +150,17 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className="my-10">
+      <div className="my-20">
         <PromotionalOffer />
       </div>
       {/* freequently asked section */}
-      <FreequentAskedQuestion />
+      <div className="my-20">
+        <FreequentAskedQuestion />
+      </div>
       {/* review section  */}
-      <CustomeerReview />
+      <div className="my-20">
+        <CustomeerReview />
+      </div>
     </div>
   );
 };

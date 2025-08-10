@@ -6,7 +6,7 @@ const FreequentAskedQuestion = () => {
   const { theme } = controller;
   return (
     <div>
-      <section className="border border-amber-500/30 rounded-2xl shadow-xl">
+      <section className=" rounded-2xl shadow-xl">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <h2
             className={

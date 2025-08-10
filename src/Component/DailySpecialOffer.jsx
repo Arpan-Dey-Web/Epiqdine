@@ -7,7 +7,7 @@ const DailySpecialOffer = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="3000"
-      className="grid grid-cols-12"
+      className="grid grid-cols-1 md:grid-cols-12"
     >
       <div className="col-span-6">
         <img
@@ -18,13 +18,13 @@ const DailySpecialOffer = () => {
       </div>
       <div className="my-auto col-span-6">
         <ul>
-          <li className="text-zinc-500 font-bold hanken-font ">
+          <li className="text-orange-400 font-bold hanken-font ">
             Our Daily Offer
           </li>
         </ul>
-        <h1 className="text-[42px] font-extrabold hanken-font ">
+        <h1 className="text-[42px] font-extrabold hanken-font text-yellow-400 ">
           Taste The Savings With Our <br />
-          <span className="text-zinc-500">Daily Special</span>
+          <span className="text-yellow-400 ">Daily Special</span>
         </h1>
         <p className="my-4  text-justify">
           Every day is an opportunity to enjoy your favorites at a discounted
@@ -32,7 +32,7 @@ const DailySpecialOffer = () => {
           meals at a fraction of the cost.
         </p>
 
-        <ul className=" relative flex flex-col gap-4">
+        <ul className=" relative flex flex-col gap-4 ">
           <li className="flex items-center gap-2">
             <IoIosCheckmarkCircle /> seasonal & locally sourced ingredients
           </li>
@@ -44,7 +44,7 @@ const DailySpecialOffer = () => {
             <IoIosCheckmarkCircle />
             exquisite pairings & unique flavors
           </li>
-          <div className="absolute right-0 ">
+          <div className="hidden lg:absolute right-0  ">
             <img
               class=" w-50 -rotate-10"
               src="https://i.ibb.co.com/ZR6vbK0L/pizza.png"

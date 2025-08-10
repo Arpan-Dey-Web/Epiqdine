@@ -19,7 +19,10 @@ const Table = ({ table }) => {
   } = table;
   // console.log(_id);
   return (
-    <div className="max-w-md p-2 rounded-md border border-amber-500/30 shadow-md ">
+    <div
+     
+      className="max-w-md p-2 rounded-md border border-amber-500/30 shadow-md "
+    >
       <img
         src={foodImageLink}
         alt={newFoodName}

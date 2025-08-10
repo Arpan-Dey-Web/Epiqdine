@@ -21,14 +21,16 @@ const Food = ({ food }) => {
   // console.log(description);
 
   return (
-    <div className="max-w-md p-6 rounded-md shadow-md border border-amber-500/30 ">
-      <motion.img
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        src={foodImageLink}
-        alt={newFoodName}
-        className="object-cover object-center w-full rounded-md h-72"
-      />
+    <div data-aos="zoom-in" className="max-w-md p-6 rounded-md shadow-md ">
+      <div className="rounded-full flex justify-center items-center  ">
+        <motion.img
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          src={foodImageLink}
+          alt={newFoodName}
+          className="rounded-full w-32 h-30"
+        />
+      </div>
       <div className="mt-6  w-full mx-auto ">
         <span
           className={`block text-sm font-semibold tracking-widest capitalize text-center  border-b-2 border-gray-300  ${
@@ -50,7 +52,9 @@ const Food = ({ food }) => {
       <div className="text-center pt-4">
         <Link
           to={`/Single_Food_Page/${_id}`}
-          className={` border  font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white active:scale-95 transition-all     ${theme =="light"? "text-yellow-400":"text-indigo-400" }`}
+          className={` border  font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white active:scale-95 transition-all     ${
+            theme == "light" ? "text-yellow-400" : "text-indigo-400"
+          }`}
         >
           See More
         </Link>

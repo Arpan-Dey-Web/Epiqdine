@@ -66,8 +66,8 @@ import { FaFire } from "react-icons/fa";
       </div>
 
       {/* Footer Timer */}
-      <div className="bg-black/30 px-6 py-3 text-center text-sm text-amber-300">
-        ⏰ Offer ends in: <span className="font-mono">03:45:22</span>
+      <div className="bg-black/30 px-6 py-5 text-center text-sm text-amber-300">
+       
       </div>
     </div>
   );

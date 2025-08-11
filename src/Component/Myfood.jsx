@@ -28,7 +28,7 @@ const Myfood = () => {
         }
       )
       .then((res) => {
-        setMyFoods(res.data);
+        // setMyFoods(res.data);
       })
       .catch((error) => {
         toast.error("Somthing Wrong");
@@ -67,6 +67,11 @@ const Myfood = () => {
             ))}
           </tbody>
         </table>
+        {myFoods.length === 0 && (
+          <div className="h-screen w-full  flex flex-col items-center justify-center ">
+            <h1 className="font-bold text-5xl">No Foods Added</h1>
+          </div>
+        )}
       </div>
       <ToastContainer />
     </div>

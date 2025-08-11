@@ -46,7 +46,7 @@ const DailySpecialOffer = () => {
           </li>
           <div className="hidden lg:absolute right-0  ">
             <img
-              class=" w-50 -rotate-10"
+              className=" w-50 -rotate-10"
               src="https://i.ibb.co.com/ZR6vbK0L/pizza.png"
               alt="Pizza"
             />

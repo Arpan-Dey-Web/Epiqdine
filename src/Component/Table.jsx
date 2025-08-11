@@ -5,8 +5,8 @@ import { Link } from "react-router";
 import { ThemeContext } from "./Context/ThemeContext";
 
 const Table = ({ table }) => {
-  const { theme } = use(ThemeContext)
-  
+  const { theme } = use(ThemeContext);
+
   const {
     _id,
     newFoodName,
@@ -19,10 +19,7 @@ const Table = ({ table }) => {
   } = table;
   // console.log(_id);
   return (
-    <div
-     
-      className="max-w-md p-2 rounded-md border border-amber-500/30 shadow-md "
-    >
+    <div className="max-w-md p-2 rounded-md border border-amber-500/30 shadow-md ">
       <img
         src={foodImageLink}
         alt={newFoodName}
@@ -37,13 +34,17 @@ const Table = ({ table }) => {
           {newFoodName}
         </span>
 
-        <div className="flex justify-between items-center text-orange-400">
+        <div
+          className={`flex justify-between items-center ${
+            theme == "dark" ? "text-black" : " text-orange-400"
+          } `}
+        >
           <div>
             <h2 className="font-semibold  ">
               <div className="flex items-center ">
                 <span className="">Price</span>
 
-                <div className="badge badge-soft badge-warning ">
+                <div className="badge  badge-primary ml-2 ">
                   {foodPrice} <FaBangladeshiTakaSign />
                 </div>
               </div>
@@ -51,7 +52,7 @@ const Table = ({ table }) => {
 
             <p className="flex mt-3">
               <span>Category: </span>
-              <span className="badge badge-soft badge-warning text-sm">
+              <span className="badge  badge-warning text-sm text-black ml-2">
                 {foodCategory}
               </span>
             </p>
@@ -62,7 +63,7 @@ const Table = ({ table }) => {
       <div className="flex justify-center mt-7">
         <Link to={`/Single_Food_Page/${_id}`}>
           <button
-            className={`flex items-center gap-2 border   font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white active:scale-95 transition-all mb-10 group ${
+            className={`flex items-center gap-2 border   font-bold py-2 px-4 rounded-lg hover:bg-yellow-700 hover:text-white hover:border-none active:scale-95 transition-all mb-10 group ${
               theme == "light"
                 ? "text-yellow-400 border-yellow-400 "
                 : "text-indigo-400 border-indigo-400"

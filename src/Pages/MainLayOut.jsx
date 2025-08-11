@@ -9,8 +9,8 @@ const MainLayOut = () => {
       <Nabbar></Nabbar>
       <div className=" w-11/12 mx-auto ">
         <Outlet></Outlet>
-        <Footer></Footer>
       </div>
+      <Footer></Footer>
     </>
   );
 };

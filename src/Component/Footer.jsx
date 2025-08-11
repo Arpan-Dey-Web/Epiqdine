@@ -8,16 +8,14 @@ const Footer = () => {
 
   return (
     <footer
-      className={`footer footer-horizontal footer-center rounded-2xl my-10 text-white  p-10 py-10 ${
-        theme === "dark" ? "bg-violet-300" : "bg-base-300"
-      }`}
+      className={`footer footer-horizontal footer-center rounded-2xl my-10 text-white  p-10 py-10  bg-base-300`}
     >
       <aside>
         <img className="rounded-2xl w-18" src={logo} alt="logo" />
         <div>
           <Link to={"/"} className="text-lg font-semibold logoName ">
-            <span className="text-yellow-600 text-3xl font-bold">Epiq</span>
-            <span className="text-yellow-300 text-3xl font-bold">Dine</span>
+            <span className="text-yellow-400 md:text-3xl font-bold ">Epiq</span>
+            <span className="text-orange-400  md:text-3xl font-bold">Dine</span>
           </Link>
         </div>
         <p className={theme == "dark" ? "text-black" : " text-white"}>
@@ -29,24 +27,33 @@ const Footer = () => {
           <nav>
             <div className="grid grid-flow-col gap-4">
               {/* linkedin */}
-              <Link
-                target="_blank"
-                to={
-                  "https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=arpan-dey-043881278"
-                }
-              >
-                <FaLinkedinIn size={30} />
-              </Link>
+              <div className="bg-blue-700 p-1 rounded-lg">
+                <Link
+                  target="_blank"
+                  to={
+                    "https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=arpan-dey-043881278"
+                  }
+                >
+                  <FaLinkedinIn size={30} />
+                </Link>
+              </div>
+
               {/* github */}
-              <Link target="_blank" to={"https://github.com/Arpan-collab"}>
-                <FaGithub size={30} />
-              </Link>
-              <Link
-                target="_blank"
-                to={"https://www.facebook.com/arpandey5000"}
-              >
-                <FaFacebook size={30} />
-              </Link>
+              <div className="bg-black p-1 rounded-lg">
+                <Link target="_blank" to={"https://github.com/Arpan-collab"}>
+                  <FaGithub size={30} />
+                </Link>
+              </div>
+              {/* facebook */}
+
+              <div className="bg-blue-700 p-1 rounded-lg">
+                <Link
+                  target="_blank"
+                  to={"https://www.facebook.com/arpandey5000"}
+                >
+                  <FaFacebook size={30} />
+                </Link>
+              </div>
             </div>
           </nav>
         </div>

@@ -4,7 +4,7 @@ import like2 from "../assets/like2.jpg";
 import like3 from "../assets/like3.jpg";
 import like4 from "../assets/like4.jpg";
 import like5 from "../assets/like5.jpg";
-import { ThemeContext } from "@emotion/react";
+import { ThemeContext } from "../Component/Context/ThemeContext";
 import Marquee from "react-fast-marquee";
 const CustomeerReview = () => {
   const controller = useContext(ThemeContext);
@@ -21,7 +21,11 @@ const CustomeerReview = () => {
         >
           Our Happy Customer Reviews
         </h1>
-        <p className="pt-4 w-11/12 mx-auto text-center  font-thin text-orange-400">
+        <p
+          className={`pt-4 w-11/12 mx-auto text-center font-thin ${
+            theme === "dark" ? " text-black" : "text-orange-400"
+          }`}
+        >
           At the heart of every dish we serve is a story — one told best by
           those who’ve tasted the love we put on every plate. From cozy dinners
           to joyful celebrations, our guests leave not just full, but fulfilled.
@@ -42,8 +46,20 @@ const CustomeerReview = () => {
                   className="object-cover w-12 h-12 rounded-full border border-amber-500/30 p-1"
                 />
                 <div>
-                  <h4 className="font-bold text-yellow-400">Priya Sharma</h4>
-                  <span className="text-xs text-gray-400">2 days ago</span>
+                  <h4
+                    className={`font-bold ${
+                      theme === "dark" ? " text-indigo-400" : "text-yellow-400"
+                    }`}
+                  >
+                    Priya Sharma
+                  </h4>
+                  <span
+                    className={`text-xs ${
+                      theme === "dark" ? "  text-black" : "text-orange-400"
+                    }`}
+                  >
+                    2 days ago
+                  </span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -55,11 +71,19 @@ const CustomeerReview = () => {
               </div>
             </div>
             <div className="p-4 space-y-2 text-sm">
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 The biryani melted in my mouth like a poem composed in saffron
                 and spice.
               </p>
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 Each bite told a tale of tradition, warmth, and soulful care.
                 Pure delight!
               </p>
@@ -76,8 +100,20 @@ const CustomeerReview = () => {
                   className="object-cover w-12 h-12 rounded-full border border-amber-500/30 p-1"
                 />
                 <div>
-                  <h4 className="font-bold text-yellow-400">Ravi Malhotra</h4>
-                  <span className="text-xs text-gray-400">1 week ago</span>
+                  <h4
+                    className={`font-bold ${
+                      theme === "dark" ? " text-indigo-400" : "text-yellow-400"
+                    }`}
+                  >
+                    Ravi Malhotra
+                  </h4>
+                  <span
+                    className={`text-xs ${
+                      theme === "dark" ? "  text-black" : "text-orange-400"
+                    }`}
+                  >
+                    1 week ago
+                  </span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -89,10 +125,18 @@ const CustomeerReview = () => {
               </div>
             </div>
             <div className="p-4 space-y-2 text-sm">
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 The paneer tikka danced with smoky elegance on my tongue.
               </p>
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 A symphony of flavors that warmed both belly and soul.
               </p>
             </div>
@@ -108,8 +152,20 @@ const CustomeerReview = () => {
                   className="object-cover w-12 h-12 rounded-full border border-amber-500/30 p-1"
                 />
                 <div>
-                  <h4 className="font-bold text-yellow-400">Fatima Noor</h4>
-                  <span className="text-xs text-gray-400">3 days ago</span>
+                  <h4
+                    className={`font-bold ${
+                      theme === "dark" ? " text-indigo-400" : "text-yellow-400"
+                    }`}
+                  >
+                    Fatima Noor
+                  </h4>
+                  <span
+                    className={`text-xs ${
+                      theme === "dark" ? "  text-black" : "text-orange-400"
+                    }`}
+                  >
+                    3 days ago
+                  </span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -121,11 +177,19 @@ const CustomeerReview = () => {
               </div>
             </div>
             <div className="p-4 space-y-2 text-sm">
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 The mango lassi? Like sunshine spun into silk, refreshing and
                 divine.
               </p>
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 I left the café with a full heart and a smiling soul.
               </p>
             </div>
@@ -141,8 +205,20 @@ const CustomeerReview = () => {
                   className="object-cover w-12 h-12 rounded-full border border-amber-500/30 p-1"
                 />
                 <div>
-                  <h4 className="font-bold text-yellow-400">Karan Desai</h4>
-                  <span className="text-xs text-gray-400">5 hours ago</span>
+                  <h4
+                    className={`font-bold ${
+                      theme === "dark" ? " text-indigo-400" : "text-yellow-400"
+                    }`}
+                  >
+                    Karan Desai
+                  </h4>
+                  <span
+                    className={`text-xs ${
+                      theme === "dark" ? "  text-black" : "text-orange-400"
+                    }`}
+                  >
+                    5 hours ago
+                  </span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -154,11 +230,19 @@ const CustomeerReview = () => {
               </div>
             </div>
             <div className="p-4 space-y-2 text-sm">
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 The garlic naan was a warm, soft cloud of flavor sent from
                 heaven's tandoor.
               </p>
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 I'd travel miles for that taste again. A masterpiece of
                 simplicity.
               </p>
@@ -175,8 +259,20 @@ const CustomeerReview = () => {
                   className="object-cover w-12 h-12 rounded-full border border-amber-500/30 p-1"
                 />
                 <div>
-                  <h4 className="font-bold text-yellow-400">Neha Verma</h4>
-                  <span className="text-xs text-gray-400">6 days ago</span>
+                  <h4
+                    className={`font-bold ${
+                      theme === "dark" ? " text-indigo-400" : "text-yellow-400"
+                    }`}
+                  >
+                    Neha Verma
+                  </h4>
+                  <span
+                    className={`text-xs ${
+                      theme === "dark" ? "  text-black" : "text-orange-400"
+                    }`}
+                  >
+                    6 days ago
+                  </span>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -188,11 +284,19 @@ const CustomeerReview = () => {
               </div>
             </div>
             <div className="p-4 space-y-2 text-sm">
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 The dessert platter sang of cardamom dreams and rosewater
                 nostalgia.
               </p>
-              <p className="text-orange-400">
+              <p
+                className={`${
+                  theme === "dark" ? "text-black" : " text-orange-400 "
+                }`}
+              >
                 A sweet epilogue to an unforgettable feast. I'm still swooning.
               </p>
             </div>

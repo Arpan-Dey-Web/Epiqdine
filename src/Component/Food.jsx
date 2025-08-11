@@ -7,18 +7,7 @@ import { use } from "react";
 
 const Food = ({ food }) => {
   const { theme } = use(ThemeContext);
-  // console.log(theme);
-  // _id,
-  // newFoodName,
-  // foodCategory,
-  // foodDescription,
-  // foodOrigin,
-  // foodQuantity,
-  // foodPrice,
-  // foodImageLink,
   const { _id, newFoodName, foodDescription, foodImageLink } = food;
-  // const description = foodDescription.slice("100")
-  // console.log(description);
 
   return (
     <div data-aos="zoom-in" className="max-w-md p-6 rounded-md shadow-md ">
